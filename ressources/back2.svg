@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+
+    <line x1="0" y1="0" x2="49" y2="0" stroke="#777" stroke-dasharray="1,2" stroke-width="1" />
+    <line x1="0" y1="0" x2="0" y2="49" stroke="#777" stroke-dasharray="1,2" stroke-width="1" />
+
+</svg>

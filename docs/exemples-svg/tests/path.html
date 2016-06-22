@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<svg width="800" height="600">
+
+    <path d="M100,100 c200,100 400,-100 500,0" fill="none"
+            stroke="black" stroke-width="20" id="path"></path>
+</svg>
+<script>
+    function getRandomPath(X, Y){
+        var d = "M" + (Math.random()*X) + "," +  (Math.random()*Y);
+        d += "C" + (Math.random()*X) + "," +  (Math.random()*Y);
+        d += (Math.random()*X) + "," +  (Math.random()*Y);
+        d += (Math.random()*X) + "," +  (Math.random()*Y);
+        return d;
+    }
+    function getRandomColor(){
+        var r = parseInt((Math.random()*256)).toString(16);
+        var g = parseInt((Math.random()*256)).toString(16);
+        var b = parseInt((Math.random()*256)).toString(16);
+        return "#" + r + g + b;
+    }
+    var p = document.querySelector('#path');
+    var blanc = p.getTotalLength();
+    var noir = 0;
+    p.setAttribute("stroke-dasharray", noir + "," + blanc);
+    function animate(step){
+        function doStep(){
+            blanc -= step;
+            noir += step;
+            p.setAttribute("stroke-dasharray", noir + "," + blanc);
+            p.setAttribute("d", getRandomPath(800,600));
+            p.setAttribute("stroke", getRandomColor());
+            if(blanc < 0){
+                blanc = p.getTotalLength();
+                noir = 0;
+            }
+            setTimeout(doStep, 10);
+        }
+        doStep();
+    }
+    animate(5);
+</script>
+</body>
+</html>

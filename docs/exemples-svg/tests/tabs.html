@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            font-size: 1.5em;
+        }
+        .tabs ul{
+            list-style-type: none;
+            padding: 0; margin: 0;
+        }
+        .tabs .links li{
+            font-size: 1.2em;
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid gray;
+            border-bottom: none;
+            border-radius: 12px 12px 0 0;
+            margin-bottom: -1px;
+            position: relative;
+            z-index: 0;
+            margin-right: 12px;
+            background: #CCC;
+        }
+        .tabs .links li:hover {
+            cursor: pointer;
+            background: #FCF;
+        }
+        .tabs .links li.active-link:hover {
+            cursor: default;
+            background: #FFC;
+        }
+        .tabs .tabs-content li {
+            position: relative;
+            padding: 10px;
+            border : 1px solid gray;
+            width: auto;
+            margin-top: 0;
+            display: none;
+        }
+        .tabs li.active-link{
+            z-index: 2;
+            background: #FFC;
+        }
+        .tabs li.active-content{
+            z-index: 1;
+            display: block;
+            background: #FFC;
+        }
+        .special h1 {
+            color: #800;
+        }
+        .description {
+            font-size: 0.84em;
+        }
+    </style>
+</head>
+<body>
+<div class="description">
+    <h1>Exercice Tabs</h1>
+    <p>Les feuilles de styles étant données, comlpéter le code
+        javascript permettant d'assurer les fonctionnalités des
+        tabs ci-dessous. </p>
+    <p><strong>Nota : </strong> <em>La hauteur des tous les tabs doivent etre
+        identiques à celle de la plus grandes</em>. Voir (offsetHeight du DOM)</p>
+</div>
+<hr/>
+<br/>
+<div class="tabs">
+    <ul class="links">
+        <li class="active-link">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <ul class="tabs-content">
+        <li class="active-content"><h1>Titre 1</h1><p>content 1 </p><p>content1 </p> </li>
+        <li class="special"><h1>Titre 2</h1><p>content 2 </p><p>  content 2 </p> <p> content 2 </p> </li>
+        <li><h1>Titre 3</h1><p>content 3 <br/><p> content 3 <br/> <p>content 3 <br/> <p>content 3 </li>
+    </ul>
+</div>
+<br/><hr/>
+<div>
+    Autre contenu.
+</div>
+<script>
+    var utils = {};
+    utils.tabs = function(){
+        var allTabs = document.querySelectorAll('.tabs');
+        for(var i=0; i<allTabs.length; i++){
+            var uls = allTabs[i].getElementsByTagName('ul');
+            var links = uls[0].getElementsByTagName('li');
+            var contents = uls[1].getElementsByTagName('li');
+            for(var j=0; j<links.length; j++){
+                setTabsHeight(contents);
+                links[j].addEventListener(
+                        'click',
+                        clickHandler(j, links, contents));
+            }
+        }
+        function clickHandler(rang, links, contents){
+            return function(){
+                removeClass(links, 'active-link');
+                removeClass(contents, 'active-content');
+                addClass(links[rang], 'active-link');
+                addClass(contents[rang], 'active-content');
+            }
+        }
+        function removeClass(tags, cls){
+            for(var i=0; i<tags.length; i++) {
+                var tag = tags[i];
+                var classAttr = tag.getAttribute('class');
+                if(classAttr == null) break;
+                var classes = classAttr.split(/ +/);
+                for (var j = 0; j < classes.length; j++) {
+                    if (classes[j] == cls) {
+                        delete classes[j];
+                        tag.setAttribute('class', classes.join(" "));
+                        break;
+                    }
+                }
+            }
+        }
+        function addClass(tag, cls){
+            var classes = tag.getAttribute('class');
+            if(classes == null) classes = "";
+            if(classes.indexOf(cls) == -1){
+                tag.setAttribute('class', classes + " " + cls);
+            }
+        }
+        function setTabsHeight(contents){
+            var maxHeight = 0;
+            for(var i=0; i<contents.length; i++) {
+                var d = contents[i].style.display;
+                contents[i].style.display = 'block';
+                if (maxHeight < contents[i].offsetHeight)
+                    maxHeight = contents[i].offsetHeight;
+                contents[i].style.display = d;
+            }
+            for(var j=0; i<contents.length; j++) {
+                contents[j].style.height = maxHeight + 'px';
+            }
+        }
+    };
+    utils.tabs();
+</script>
+</body>
+</html>

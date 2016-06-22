@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+    var Figure = function(x, y, w, h){
+        this.width = w || 0;
+        this.height = h || 0;
+        this.x = x || 0;
+        this.y = y || 0;
+        this.getBox = function(){
+            return {x: this.x, y: this.y, width: this.width, height: this.height};
+        };
+        this.draw = function(ctx){};
+    };
+
+    var Rect = function(x, y, w, h){
+        Figure.call(this, x, y, w, h);
+        this.draw = function(ctx){
+            ctx.drawRect(this);
+        }
+    };
+
+    Rect.prototype = Object.create(Figure.prototype);
+    Rect.prototype.constructor = Rect;
+
+    var Circle = function(r, cx, cy){
+        this.r = r;
+        this.cx = cx;
+        this.cy = cy;
+        Figure.call(this, cx-r, cy-r, 2*r, 2*r);
+        this.draw = function(ctx){
+            ctx.drawCircle(this);
+        }
+    };
+    Circle.prototype = Object.create(Figure.prototype);
+    Circle.prototype.constructor = Circle;
+
+    var Dessin = function(ctx){
+        this.context = ctx || null;
+        this.figures = [];
+        this.limit = -1;
+        this.addFigure = function(fig){
+            this.figures.push(fig);
+            if (this.limit > 0 && this.figures.length > this.limit)
+                this.figures.shift();
+        };
+        this.removeFigure = function(fig){
+            for(var i=0; i<this.figures.length; i++){
+                if (fig === this.figures[i]){
+                    delete this.figures[i];
+                    return;
+                }
+            }
+        };
+        this.draw = function(){
+            if (!this.context){
+                console.log("Il n'y a pas de contexte de dessin");
+                return;
+            }
+            for(var i=0; i<this.figures.length; i++){
+                this.figures[i].draw(this.context);
+            }
+        }
+    };
+
+    var Context = function(domElm, w, h){
+        var createElement = function(x, y, w, h){
+          var elm = document.createElement('div');
+            elm.style.left = x + 'px';
+            elm.style.top = y + 'px';
+            elm.style.width = w + 'px';
+            elm.style.height = h + 'px';
+            elm.style.position = 'absolute';
+            elm.style.opacity = Math.random();
+            elm.style.border = '1px solid ' + getRandomColor();
+            elm.style.background = 'none'; //getRandomColor();
+            return elm;
+        };
+        var getRandomColor = function(){
+            var r = parseInt(Math.random()*256).toString(16);
+            var g = parseInt(Math.random()*256).toString(16);
+            var b = parseInt(Math.random()*256).toString(16);
+            return "#" + r + g + b;
+        };
+        this.width = w || 600;
+        this.height = h || 400;
+        this.canvas = domElm;
+        this.drawRect = function(r){
+            var rect = createElement(r.x, r.y, r.width, r.height);
+            domElm.appendChild(rect);
+        };
+        this.drawCircle = function(c){
+            var cir = createElement(c.x, c.y, c.width, c.height);
+            cir.style.borderRadius = c.r + 'px';
+            domElm.appendChild(cir);
+        };
+    };
+
+    var createRandomFigure = function(ctx){
+        if(Math.random() > 0.5)
+            return new Rect(
+                    parseInt(Math.random()*ctx.width),
+                    parseInt(Math.random()*ctx.height),
+                    parseInt(Math.random()*40),
+                    parseInt(Math.random()*40)
+            );
+        else
+            return new Circle(
+                    parseInt(Math.random()*40),
+                    parseInt(Math.random()*ctx.width),
+                    parseInt(Math.random()*ctx.height)
+            );
+    }
+
+    var dessin = new Dessin(new Context(document.body));
+
+    for (var i=0; i< 100; i++){
+        dessin.addFigure(createRandomFigure(dessin.context));
+    }
+
+    dessin.draw();
+
+</script>
+</body>
+</html>

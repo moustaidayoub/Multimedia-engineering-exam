@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        svg {
+            margin-left: 30px;
+            margin-top: 30px;
+            border : 4px solid gray;
+            background: url(../ressources/back1.svg),
+                        url(../ressources/back2.svg),
+                        url(../ressources/back3.svg);
+        }
+        .container .h {
+            position: absolute;
+            left: 43px;
+        }
+        .container .v {
+            position: absolute;
+            top: 43px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="../ressources/rule_h.png" class="h"/>
+    <img src="../ressources/rule_v.png" class="v"/>
+    <svg width="400" height="400">
+        <!-- exercice 2    -->
+        <polyline points="50,90 150,300 250,300 350,90"
+              style="fill: #77aaff; stroke-linecap:round; stroke: #000044; stroke-width: 30" />
+
+
+    </svg>
+</div>
+<button style="padding: 0.4em 2em; width:408px; margin-left:30px; font-size:2em"
+            onclick="history.back()">Retour</button>
+</body>
+</html>

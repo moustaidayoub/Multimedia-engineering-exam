@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    td {
+        width: 20px;
+        height: 20px;
+    }
+</style>
+<body>
+
+
+
+<script>
+    function createDemin(elm, r, c){
+        var elm = elm ? document.querySelector(elm) : document.body;
+        var cols = c || 20;
+        var rows = r || 20;
+        var cells = [];
+        var table = "<table border='1'>";
+        for(var i=0; i<rows; i++){
+            table += "<tr>";
+            cells[i] = [];
+            for(var j=0; j<cols; j++){
+                cells[i][j] = getRandom();
+                table += "<td></td>";
+            }
+            table += "</tr>";
+        }
+        elm.innerHTML = table + "</table>";
+
+        function getRandom(){
+            return Math.random()<0.3 ? 1 : 0;
+        }
+        var allTDs = document.getElementsByTagName('td');
+        for(var i=0; i<rows; i++){
+            for(var j=0; j<cols; j++){
+                allTDs[j + i*cols].addEventListener('click', handleClick(i,j));
+            }
+        }
+        function handleClick(i,j){
+            return function(){
+                console.log(i,j);
+                console.log(cells[i][j]);
+                if(cells[i][j]==0)
+                    allTDs[j+i*cols].style.background = 'green';
+                else {
+                    allTDs[j + i * cols].style.background = 'red';
+                    var gi= 0, gj=0;
+                    gameOver();
+                    function gameOver(){
+                        console.log(gi, gj);
+
+                        allTDs[gj + gi*cols].style.background = cells[gi][gj] ? 'red' : 'green';
+
+                        if(gj==cols-1 && gi==rows-1)
+                            return;
+                        else
+                            setTimeout(gameOver, 2);
+                        if(++gj==cols){
+                            gj = 0;
+                            gi++;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    createDemin();
+</script>
+</body>
+</html>

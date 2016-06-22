@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Raphael JS - A. DAAIF</title>
+
+		<meta name="description" content="Présentation de Raphael JS">
+		<meta name="author" content="Aziz DAAIF">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+		<!-- For syntax highlighting
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		-->
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+        <link href="plugin/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <style type="text/css">
+            .reveal p {
+				font-size: 0.75em;
+				line-height: 1.5em;
+			}
+            .stage {
+                width : 100%;
+                background: white;
+            }
+            .stage svg {
+                border : 3px gray dotted;
+            }
+            .reveal pre{
+                line-height: 1.7em;
+            }
+             .reveal pre code{
+                 max-height: 500px;
+                 min-width: 800px;
+                 font-size: 1.2em;
+            }
+            pre.myLf .lf{
+                /*display: none;*/
+            }
+
+            .heighlight-red {
+				text-shadow: 1px 1px 1px #fff, 1px 1px 8px #b55;
+			}
+            .heighlight-green {
+				text-shadow: 1px 1px 1px #fff, 1px 1px 8px #5b5;
+			}
+            .heighlight-blue {
+				text-shadow: 1px 1px 1px #fff, 1px 1px 8px #55b;
+			}
+            .heighlight {
+
+				text-shadow: 1px 1px 1px #fff, 1px 0px 12px #fa0;
+			}
+
+            .reveal li {
+                margin: 0.6em 0;
+                font-size: 0.75em;
+            }
+        </style>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+                    <h1><span class="heighlight-red">Raphael JS</span></h1>
+                    <br><br>
+                    <h3><span class="heighlight-blue">ENSET-M</span></h3>
+                    <h3><span class="heighlight-blue">UH2 Casablanca</span></h3>
+                    <br>
+                    <h4><span class="heighlight-green">A. DAAIF</span></h4>
+                    <h5><span class="heighlight-blue">http://raphael.daaif.net</span></h5>
+                    <p>aziz@daaif.net</p>
+				</section>
+                <section>
+                    <h2><span class="heighlight-red">Raphael JS ?</span></h2>
+                    <br>
+                    <p>
+                        Raphael JS est une bibliothèque javascript qui permet de créer, de manipuler et
+                        d'animer des dessins vectoriels.
+                    </p>
+                    <p>Raphael JS est compatible avec tout les navigateurs y compris IE.</p>
+                    <p>Pour les navigateurs modernes, il génère des noeuds SVG, et pour les anciennes versions
+                    d'IE, il génère du VML</p>
+                </section>
+                <section>
+                <section data-state="script01">
+                    <h3><span class="heighlight-green">Intégration dans une page Web</span></h3><br/>
+<pre data-src="raphael/raph01.html" class=" language-markup myLf"></pre>
+                    <div id="stage01" class="stage"
+                         style="width: 200px;position: absolute;top: 200px;right: 10px;"></div>
+                </section>
+                </section>
+                <section>
+                    <section>
+                    <h2><span class="heighlight-red">Les primitives SVG</span></h2>
+                    <ul>
+                        <li><span class="heighlight">paper.rect(x, y, w, h, r)</span></li>
+                        <li><span class="heighlight">paper.circle(cx, cy, r)</span></li>
+                        <li><span class="heighlight">paper.ellipse(cx, cy, rx, ry)</span></li>
+                        <li><span class="heighlight">paper.text(x, y, text )</span></li>
+                        <li><span class="heighlight">paper.image(src, x, y, w, h)</span></li>
+                        <li><span class="heighlight">paper.path('M10,10 c18....z')</span></li>
+                    </ul>
+                    </section>
+                    <section data-state="script02">
+                        <h3><span class="heighlight-green">Exemple 1</span></h3><br/>
+                        <pre data-src="raphael/raph02.js" class="language-javascript myLf"></pre>
+                        <div id="stage02" class="stage"></div>
+                    </section>
+                    <section data-state="script03">
+                        <h3><span class="heighlight-green">Exemple 2</span></h3><br/>
+                        <pre data-src="raphael/raph03.js" class="language-javascript myLf"></pre>
+                        <div id="stage03" class="stage"></div>
+                    </section>
+                    <section data-state="script04">
+                        <h3><span class="heighlight-green">Exemple 3</span></h3><br/>
+                        <pre data-src="raphael/raph04.js" class="language-javascript myLf"></pre>
+                        <div id="stage04" class="stage"></div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2><span class="heighlight-red">Attributs SVG</span></h2>
+                        <h5>La méthode <span class="heighlight">attr()</span></h5>
+                        <ul>
+                            <li>Elle est appelée pour lire
+                            ou modifier un attribut.</li>
+                            <li>En fonction du type de primitive, chaque
+                                objet va avoir ses propres attributs</li>
+                            <li>Tout les attributs correspondent à ceux de SVG </li>
+                        </ul>
+                        <pre class="language-javascript ">
+                            <code class="language-javascript">rect1.attr('stroke-width', 12); // Ecriture d'un attribut
+var couleur = rect2.attr('fill'); // Lecture d'un attribut
+// Ecriture de plusieurs attributs à la fois
+rect3.attr({
+            stroke : '#bada07',
+            'stroke-width' : 20
+          });</code>
+                        </pre>
+
+                    </section>
+                    <section>
+                        <h3><span class="heighlight-green">Représentation de la couleur</span></h3>
+                        <h4>Pulsieurs possiblités</h4><br/>
+                        <pre class="language-javascript">
+                            <code class="language-javascript">var couleur = 'red';
+couleur = 'rgb(255,0,0)';
+couleur = 'rgb(100%,0%,0%)';
+couleur = 'rgba(255,0,0,0.7)'; // a = canal alpha 0 -> 1
+couleur = 'hsb(0,1,0.5)'; // hue, saturation et brightness
+couleur = 'hsba(0,1,0.5,0.8)'; // canal alpha
+couleur = 'hsl(0,1,0.5)'; // hue, saturation et lightness
+couleur = 'hsla(0,1,0.5,0.8)'; // canal alpha
+                            </code>
+                        </pre>
+                    </section>
+                    <section data-state="script05">
+                        <h3><span class="heighlight-green">Exemple 1</span></h3><br/>
+                        <pre data-src="raphael/raph05.js" class="language-javascript myLf"></pre>
+                        <div id="stage05" class="stage" style="height: 300px; padding: 18px 0;"></div>
+                    </section>
+                    <section>
+                        <h3><span class="heighlight-green">Les dégradés</span></h3>
+                        <p>La création des dégradés est simplifiée :</p><br/>
+<pre class="language-javascript">
+    <code class="language-javascript">// Syntaxe des dégradés linéaires
+//  "‹angle›-‹colour›[-‹colour›[:‹offset›]]*-‹colour›"
+// Exemples :
+var deg1 = '90-#fff-#000';
+var deg2 = '45-red-orange-yellow-green-blue-violet';
+
+// Syntaxe des dégradés radiaux
+// "r[(‹fx›, ‹fy›)]‹colour›[-‹colour›[:‹offset›]]*-‹colour›"
+// Exemples :
+var deg3 = 'r#fff-#000';
+var deg4 = 'r(0.25, 0.75)#fff-#000';</code>
+</pre>
+                    </section>
+                    <section data-state="script06">
+                        <h3><span class="heighlight-green">Exemple 2</span></h3><br/>
+<pre data-src="raphael/raph06.js" class="language-javascript myLf"></pre>
+                        <div id="stage06" class="stage"  style="height: 300px; padding: 18px 0;"></div>
+                    </section>
+                    <section data-state="script07">
+                        <h3><span class="heighlight-green">Exemple 3</span></h3><br/>
+                        <pre data-src="raphael/raph07.js" class="language-javascript myLf"></pre>
+                        <div id="stage07" class="stage" style="width: 300px;position: absolute;top: 160px;right: 10px;"></div>
+                    </section>
+                    <section data-state="script08">
+                        <h3><span class="heighlight-green">Styles des lignes</span></h3><br/>
+                        <pre data-src="raphael/raph08.js" class="language-javascript myLf"></pre>
+                        <div id="stage08" class="stage" style="width: 200px;position: absolute;top: 200px;right: 10px;"></div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2><span class="heighlight-red">Les transformations SVG</span></h2><br>
+                        <ul>
+                            <li>Raphael JS expose la méthode <span class="heighlight">transform()</span> pour
+                                les transformations suivantes :
+                            <br><ul>
+                                <li><span class="heighlight">Translation</span></li>
+                                <li><span class="heighlight">Rotation</span></li>
+                                <li><span class="heighlight">Mise à l'échelle</span></li>
+                            </ul>
+                            </li>
+                            <li>L'objet <span class="heighlight">Matrix</span> permet toutes les transformations SVG</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3><span class="heighlight-green">Particularités Raphael JS</span></h3><br>
+
+                        <p>Toutes les transformations s'effectuent
+                            par rapport au centre de l'objet</p>
+                        <p>Raphael JS utilise une notation particulière</p>
+                        <ul>
+                            <li> (<span class="heighlight"><strong>T</strong></span>) ou
+                                (<span class="heighlight"><strong>t</strong></span>) pour translate</li>
+                            <li> (<span class="heighlight"><strong>R</strong></span>) ou
+                                (<span class="heighlight"><strong>r</strong></span>) pour rotate</li>
+                            <li> (<span class="heighlight"><strong>S</strong></span>) ou
+                                (<span class="heighlight"><strong>s</strong></span>) pour scale</li>
+                        </ul>
+
+                    </section>
+                    <section data-state="script09">
+                        <h3><span class="heighlight-green">Transformations absolues</span></h3><br/>
+                        <pre data-src="raphael/raph09.js" class="language-javascript myLf"></pre>
+                        <div id="stage09" class="stage" style="width: 300px;position: absolute;top: 200px;right: 0;"></div>
+                    </section>
+                    <section data-state="script10">
+                        <h3><span class="heighlight-green">Transformations absolues</span></h3>
+                        <pre data-src="raphael/raph10.js" class="language-javascript myLf"></pre>
+                        <div id="stage10" class="stage" style="width: 300px;position: absolute;top: 200px;right: 10px;"></div>
+                    </section>
+                    <section data-state="script11">
+                        <h3><span class="heighlight-green">Transformations relatives</span></h3><br/>
+                        <pre data-src="raphael/raph11.js" class="language-javascript myLf"></pre>
+                        <div id="stage11" class="stage" style="width: 300px;position: absolute;top: 200px;right: 10px;"></div>
+                    </section>
+                    <section data-state="script12">
+                        <h3><span class="heighlight-green">Transformations relatives</span></h3><br/>
+                        <pre data-src="raphael/raph12.js" class="language-javascript myLf"></pre>
+                        <div id="stage12" class="stage" style="width: 300px;position: absolute;top: 200px;right: 10px;"></div>
+                    </section>
+                    <section data-state="script13">
+                        <h3><span class="heighlight-green">Cumuler les transformations</span></h3><br/>
+                        <pre data-src="raphael/raph13.js" class="language-javascript myLf"></pre>
+                        <div id="stage13" class="stage" style="width: 300px;position: absolute;top: 200px;right: 10px;"></div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                    <h2><span class="heighlight-red">Groupement d'éléments</span></h2>
+                    <ul>
+                        <li>L'équivalent de l'élément <span class="heighlight"><strong>&lt;g&gt;</strong></span> de SVG</li>
+                        <li style="font-size: 0.9em"><pre class="language-javascript"><code class="language-javascript">var group = paper.set();
+group.push(paper.rect(10,10,10,10), paper.circle(50,50,10));
+// On peut biensur imbriquer les groupes</code>
+                        </pre> </li>
+                        <li>Ici, on ajoute deux éléments dans le groupe</li>
+                        <li>On peut alors transformer ou animer le groupe</li>
+                    </ul>
+                    </section>
+                    <section data-state="script14">
+                        <h3><span class="heighlight-green">Exemple</span></h3><br/>
+                        <pre data-src="raphael/raph14.js" class="language-javascript myLf"></pre>
+                        <div id="stage14" class="stage" style="width: 300px;position: absolute;top: 200px;right: 10px;"></div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                    <h2><span class="heighlight-red">Profondeur</span></h2>
+                    <ul>
+                        <li>Quand les élements se chevauchent, les derniers
+                            apparaissent au premier plan</li>
+                        <li>Deux méthodes pour mettre au premier ou en arrière plan :
+                    <ul>
+                        <li><span class="heighlight"><strong>toBack()</strong></span></li>
+                        <li><span class="heighlight"><strong>toFront()</strong></span></li>
+                    </ul>
+                    </li>
+                    </ul>
+                    </section>
+                    <section data-state="script141">
+                        <h3><span class="heighlight-green">Exemple</span></h3><br/>
+                        <pre data-src="raphael/raph141.js" class="language-javascript myLf"></pre>
+                        <div id="stage141" class="stage" style="width: 300px;position: absolute;top: 160px;right: 10px;"></div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2><span class="heighlight-red">Les événements</span></h2>
+                        <p>Prend en charge :</p>
+                        <p>tout les évenements de la sourie :</p>
+                            <ul>
+                                <li><span class="heighlight">click()</span></li>
+                                <li><span class="heighlight">mousemove()</span></li>
+                                <li><span class="heighlight">mousedown()</span></li>
+                                <li><span class="heighlight">...</span></li>
+                            </ul>
+                        <p>le drag and drop :</p>
+                        <ul>
+                            <li><span class="heighlight">drag()</span></li>
+                            <li><span class="heighlight">onDragOver()</span></li>
+                        </ul>
+                        <p>Les événements du clavier peuvent être ajoutés à l'aide JS</p>
+
+                    </section>
+                    <section data-state="script15">
+                        <h3><span class="heighlight-green">Exemple</span></h3><br/>
+                        <pre data-src="raphael/raph15.js" class="language-javascript myLf"></pre>
+                        <div id="stage15" class="stage"
+                             style="width: 300px;position: absolute;top: 200px;right: 10px;"></div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2><span class="heighlight-red">Les animations</span></h2>
+                        <br><p>Les animations sont réalisées en altérant
+                            un ou pluiseurs attributs des élément au cours du temps.</p>
+                        <p>On peut animer un élément ou un groupe
+                        d'éléments en utilisant la méthode
+                            <span class="heighlight"><strong>animate()</strong></span>.
+                        Cette méthode peut être appelée de plusieurs façons :</p>
+                        <ul>
+                            <li> En lui passant les paramètres de l'animation</li>
+                            <li> En lui passant un objet de type
+                                <span class="heighlight"><strong>Raphael.animation</strong></span>.</li>
+                        </ul>
+                    </section>
+                    <section data-state="script16">
+                        <h3><span class="heighlight-green">Exemple</span></h3><br/>
+                        <pre data-src="raphael/raph16.js" class="language-javascript myLf"></pre>
+                        <div id="stage16" class="stage"
+                             style="width: 300px;position: absolute;top: 200px;right: 0;"></div>
+                    </section>
+                    <section data-state="script17">
+                        <h3><span class="heighlight-green">Controller le début de l'animation</span></h3><br/>
+                        <pre data-src="raphael/raph17.js" class="language-javascript myLf"></pre>
+                        <div id="stage17" class="stage"
+                             style="width: 220px;position: absolute;top: 200px;right: 0px;"></div>
+                    </section>
+                    <section data-state="script18">
+                        <h3><span class="heighlight-green">Passage d'un objet <strong>animation</strong></span></h3>
+                        <br/>
+                        <p>L'avantage ici, est que l'animation peut être
+                            appliquée à n'importe quel objet.</p>
+                        <pre data-src="raphael/raph18.js" class="language-javascript myLf"></pre>
+                        <div id="stage18" class="stage"
+                             style="width: 220px;position: absolute;top: 200px;right: 10px;"></div>
+                    </section>
+                    <section data-state="script19">
+                        <h3><span class="heighlight-green">Synchronisation des animations</span></h3><br/>
+                        <pre data-src="raphael/raph19.js" class="language-javascript myLf"></pre>
+                        <div id="stage19" class="stage"
+                             style="width: 300px;position: absolute;top: 160px;right: 10px;"></div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2><span class="heighlight-red">Aller plus loin</span></h2><br>
+                        <ul><li>Retrouver le rectangle
+                            <span class="heighlight"><strong>circonscrit</strong></span>
+                            d'un élément ou d'un groupe d'éléments</li>
+                            <li>Quelle est la longueur d'un chemin <span class="heighlight">
+                                <strong>path</strong></span></li>
+                            <li>Obtenir les coordonnées d'un point sur un chemin à
+                        une distance donnée.</li>
+                            <li>Zoomer et/ou défiler un graphique</li>
+                        </ul>
+                    </section>
+                    <section data-state="script20">
+                        <h3><span class="heighlight-green">Rectangle circonscrit</span></h3><br/>
+                        <pre data-src="raphael/raph20.js" class="language-javascript myLf"></pre>
+                        <div id="stage20" class="stage"
+                             style="width: 300px;position: absolute;top: 160px;right: 10px;"></div>
+                    </section>
+                    <section data-state="script21">
+                        <h3><span class="heighlight-green">Position dans un chemin</span></h3><br/>
+                        <pre data-src="raphael/raph21.js" class="language-javascript myLf"></pre>
+                        <div id="stage21" class="stage"
+                             style="width: 220px;position: absolute;top: 160px;right: 10px;"></div>
+                    </section>
+                    <section data-state="script22">
+                        <h3><span class="heighlight-green">Zoomer</span></h3>
+                        <pre data-src="raphael/raph22.js" class="language-javascript myLf"></pre>
+                        <div id="stage22" class="stage"
+                             style="width: 220px;position: absolute;top: 160px;right: 10px;"></div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2><span class="heighlight-red">Apprendre en s'amusant</span></h2>
+                        <br>
+                        <ul>
+                            <li><a href="raphael/bulles.html" target="_blank" style="color:#99F">
+                            Un monde en bulles
+                            </a></li>
+                            <li><a href="raphael/bomber.html" target="_blank" style="color:#99F">
+                            Bombardier
+                        </a></li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+        <script src="plugin/prism/prism.js"></script>
+        <script src="js/raphael-min.js"></script>
+        <script src="raphael/script.js"></script>
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					//{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    //{ src: 'plugin/sh/scripts/shCore.js', async: true, callback: function() { SyntaxHighlighter.all(); } },
+                    //{ src: 'plugin/sh/scripts/shBrushJScript.js', async: true, callback: function() {} },
+                    //{ src: 'plugin/sh/scripts/shBrushXml.js', async: true, callback: function() {} },
+                    //{ src: 'plugin/prism/prism.js', async: true, callback: function() {} },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

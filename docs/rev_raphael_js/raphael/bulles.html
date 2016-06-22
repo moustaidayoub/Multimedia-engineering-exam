@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        svg {
+            background: black;
+        }
+    </style>
+    <script src="../js/raphael-min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        Raphael.fn.snow = function (width, count, d) {
+
+            var d = d || 10;
+            var cy = -d;
+            var count = count || 100;
+            var _this = this;
+            for (var i = 0; i < count; i++) {
+                var singleSnow = function () {
+                    var cx = Math.random() * width;
+                    var r = Math.random();
+                    var c = _this.circle(cx, cy, r * d);
+                    c.attr({
+                        'fill': 'rwhite-hsl(' + Math.random()*360 + 'deg,1,0.5)',
+                        'fill-opacity': r,
+                        'stroke': 'none'
+                    });
+                    var anim = Raphael.animation(
+                            {
+                                cy: (((y=_this.height * Math.random())<_this.height/2) ?
+                                        _this.height-d : y)
+                            },
+                            1e3 + 1e3 / (r + 0.1), '',
+                            function () {
+                                //if (this.attr('cy') > this.width)
+                                this.remove();
+                                singleSnow();
+                            });
+                    c.animate(anim);
+                }
+                singleSnow();
+            }
+
+        };
+        window.onload = function () {
+
+            var paper = Raphael("easing", 1000, 660);
+
+            var s = paper.snow(paper.width, 100, 80);
+
+        };
+
+    </script>
+</head>
+<body>
+<div id="easing"></div>
+</body>
+</html>

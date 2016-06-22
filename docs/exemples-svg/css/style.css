@@ -1,0 +1,143 @@
+body {
+        padding: 0 20px;
+    }
+    svg {
+        border: 3px ridge gray;
+        background: url(../icons/back1.svg), url(../icons/back2.svg) , url(../icons/back3.svg);
+        vertical-align: top;
+    }
+    .clearfix:before {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    textarea {
+        width: 700px;
+        min-height: 300px;
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+    .code {
+        width: 700px;
+        margin-left: 12px;
+        display: inline-block;
+    }
+    .code pre {
+        margin-top: 0;
+        height: 306px;
+    }
+    .home {
+        font-weight: bold;
+        background: #CfF;
+    }
+    .menu ul {
+        margin: 8px 0;
+        padding: 0; list-style-type: none;}
+    .menu li {
+        background: white;
+        display: inline-block;
+        margin: 12px 4px;
+        border: 1px solid black;
+        box-shadow: 2px 2px 26px white
+    }
+    .menu a {
+        display: block;
+        color: darkblue ;
+        background: white;
+        font-size: 1.1em;
+        text-decoration: none;
+        padding: 6px 16px; }
+    .menu li.title { color: white ;font-size: 1.3em;font-weight: bold; background: black; padding: 6px 16px; margin-left:16px; font-family: arial}
+    .menu a:hover {color: #F55;}
+    .menup { background: gray;}
+    .menus { background: #CCC;}
+     h2 {background: #eee;padding: 12px 6px; font-family: arial}
+    .top img { border: 1px solid gray; padding: 4px; width: 20px; height: 20px; margin-bottom: -8px;
+        background: #fff; }
+    .top img:hover{ background: #CFF;}
+    .exercices { padding-left: 30px;}
+    .exercices h3 { font-family: arial; font-size: 1.2em;padding: 0.7em; text-shadow: 1px 1px 1px white, 1px 1px 18px black}
+    .exercices small {color: #999; margin-right: 20px;}
+    .exercices img { box-shadow: 1px 1px 24px black}
+    .menup li.title {
+        background: url(../icons/svg.svg) no-repeat ;
+        background-position-x: 4px;
+        background-position-y: 3px;
+        padding-left: 40px;
+    }
+    .menup li ul.sous-menu {
+        position: absolute;
+        display: none;
+        z-index: 10;
+        background: white;
+        margin: 0;
+        margin-left: -1px;
+        border: 1px solid gray;
+        border-top: none;
+        padding-bottom: 12px;
+    }
+    .menup li ul.sous-menu > li {
+        margin: 6px 10px;
+    }
+    .menup ul.sous-menu > li {
+        display: block;
+        width:200px;
+        border-color: #ddd;
+        box-shadow: 1px 1px 4px #ddd;
+    }
+    .menup  li:hover ul.sous-menu {
+        display: block;
+    }
+    .menup ul.sous-menu .separator {
+        border-color: #ddd;
+        border-style: outset;
+        border-bottom: none;
+        margin: 24px;
+    }
+
+    .menup ul.sous-menu ul.sous-sous-menu {
+        position: absolute;
+        display: none;
+        z-index: 12;
+        background: white;
+        margin: 0;
+        margin-left: 50px;
+        border: 1px solid gray;
+        border-top: none;
+        padding-bottom: 12px;
+    }
+    .menup li ul.sous-sous-menu li {
+        margin: 6px 10px;
+    }
+    .menup ul.sous-menu ul.sous-sous-menu li {
+        display: block;
+        width:200px;
+        border-color: #ddd;
+        box-shadow: 1px 1px 4px #ddd;
+    }
+    .menup ul.sous-menu li:hover ul.sous-sous-menu {
+        display: block;
+    }
+    .menup ul.sous-sous-menu .separator {
+        border-color: #ddd;
+        border-style: outset;
+        border-bottom: none;
+        margin: 24px;
+    }
+
+    .menup li.parent > a {
+        background: url(../icons/down.svg)  no-repeat  center right;
+        margin-right: 4px;
+    }
+
+    .exercices > div {
+        width: 440px;
+        padding: 12px;
+        display: inline-block;
+    }
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var Person = function(name){
+        this.name = name;
+    };
+    Person.prototype.sayHello = function(){
+            console.log("I'm " + this.name + " Hello");
+    };
+    Person.prototype.toString = function(){
+        return "I'm " + this.name + " Hello World";
+    };
+
+    var Etudiant = function(name, num){
+        this.numero = num;
+        Person.call(this, name);
+    };
+
+    Etudiant.prototype = Object.create(Person.prototype);
+    Etudiant.prototype.sayHello = function(){
+        console.log("I'm Etudiant " + this.name + ". My Num is :" + this.numero);
+    };
+
+    var hamid = new Etudiant("Hamid", 34);
+    var toto = new Etudiant("Toto", 12);
+
+    console.log(hamid, toto);
+    console.log("Hamid is Person : " , hamid instanceof  Person);
+    console.log("Toto is Person : " , toto instanceof  Person);
+    console.log("Hamid is Etudiant : " , hamid instanceof  Etudiant);
+    console.log("Toto is Etudiant : " , toto instanceof  Etudiant);
+
+</script>
+</body>
+</html>

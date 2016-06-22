@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<svg width="600" height="400">
+    <symbol id="roue">
+        <g >
+            <circle r="50" cx="60" cy="60" stroke="black" fill="none"  stroke-width="16"/>
+            <g >
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(15, 60,60)" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(30, 60,60)" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(45, 60,60)" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(60, 60,60)" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(75, 60,60)" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(90, 60,60)" />
+            </g>
+            <g transform="rotate(90, 60,60)">
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(15, 60,60)" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(30, 60,60)" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(45, 60,60)" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(60, 60,60)" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(75, 60,60)" />
+                <line x1="10" y1="60" x2="110" y2="60" stroke="black" transform="rotate(90, 60,60)" />
+            </g>
+            <animateTransform attributeName="transform" attributeType="xml" dur="3s" type="rotate"
+                                  from="0, 60, 60" to="360, 60, 60" repeatCount="indefinite" />
+        </g>
+    </symbol>
+    <g>
+
+        <use xlink:href="#roue" x="-300" y="44"/>
+        <use xlink:href="#roue" x="-150" y="44"/>
+        <animateTransform attributeName="transform" attributeType="xml" dur="5s" type="translate"
+                          from="100" to="900" repeatCount="indefinite"/>
+    </g>
+    <line x1="0" y1="164" x2="600" y2="164" stroke="black" stroke-width="20" />
+</svg>
+
+</body>
+</html>

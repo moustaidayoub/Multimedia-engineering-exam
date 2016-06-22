@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Rect -- Exemple</title>
+</head>
+<link rel="stylesheet" href="css/prism.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+<body>
+<div class="menu menup" id="menu">
+    <ul>
+        <li class="title">Exemples SVG</li>
+        <li class="parent"><a href="#primitives">Primitives de base</a>
+            <ul class="sous-menu">
+                <li><a href="#line">Lignes</a></li>
+                <li><a href="#rect">Rectangles</a></li>
+                <li><a href="#circle">Cercles & Ellipses</a></li>
+                <li><a href="#polyline">Polylignes</a></li>
+                <li><a href="#polygon">Polygones</a></li>
+                <li class="separator"></li>
+                <li class="parent"><a href="#paths">Paths</a>
+                    <ul class="sous-sous-menu">
+                        <li><a href="#lines">Lignes </a></li>
+                        <li><a href="#arcs">Arcs</a></li>
+                        <li><a href="#q">Courbe Quadratique </a></li>
+                        <li><a href="#c">Courbe Cubique</a></li>
+                    </ul>
+                </li>
+                <li class="separator"></li>
+                <li><a href="#text">Texte</a></li>
+                <li class="separator"></li>
+                <li><a href="#image">Images</a></li>
+            </ul>
+        </li>
+
+        <li class="parent"><a href="#gradients">Dégradés</a>
+            <ul class="sous-menu">
+                <li><a href="#linear">Dégradé linéaire </a></li>
+                <li><a href="#radial">Dégradé radial</a></li>
+            </ul>
+        </li>
+        <li><a href="#patterns">Motifs</a></li>
+        <li class="parent"><a href="#transform">Transformations</a>
+            <ul class="sous-menu">
+                <li><a href="#translate">Translation </a></li>
+                <li><a href="#rotate">Rotation</a></li>
+                <li><a href="#scale">Mise à l'échelle</a></li>
+                <li><a href="#skew">Cisaillement</a></li>
+            </ul>
+        </li>
+        <li class="parent"><a href="#avance">Avancé</a>
+            <ul class="sous-menu">
+                <li><a href="#clip">Cliping </a></li>
+                <li><a href="#mask">Masques</a></li>
+            </ul>
+        </li>
+        <li class="parent"><a href="#exercices">Exercices</a>
+            <ul class="sous-menu">
+                <li><a href="#coeur">1 - Coeur</a></li>
+                <li><a href="#coeurs">2 - Coeurs croisés</a></li>
+                <li><a href="#logo">3 - Logo Lesieur</a></li>
+                <li><a href="#asterie">4 - Astérie</a></li>
+                <li><a href="#croisillon">5 - Croisillon</a></li>
+                <li><a href="#carrelage">6 - Carrelage</a></li>
+                <li><a href="#weave">7 - Vagues</a></li>
+                <li><a href="#weave">8 - Mona lisa</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="menu menus" id="primitives">
+    <ul>
+        <li class="title">Primitives</li>
+        <li><a class="home" href="#">Home</a></li>
+        <li><a href="#line">Lignes</a></li>
+        <li><a href="#rect">Rectangles</a></li>
+        <li><a href="#circle">Cercles & Ellipses</a></li>
+        <li><a href="#polyline">Polylignes</a></li>
+        <li><a href="#polygon">Polygones</a></li>
+    </ul>
+</div>
+<br/>
+<!-- Lignes -->
+<h2 id="line">Segments <a href="#primitives" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+    <!-- Segment noir  Attributs CSS -->
+    <line  x1="50" y1="30" x2="350" y2="30"
+          style="stroke:black; stroke-width: 20;"/>
+    <!-- Segment bleu  Attributs XML -->
+    <line  x1="50" y1="80" x2="350" y2="80"
+          stroke="blue" stroke-width="20"/>
+    <!-- Segment vert  bouts arrondie -->
+    <line  x1="50" y1="130" x2="350" y2="130"
+           stroke-linecap="round"
+          stroke="green" stroke-width="20"/>
+    <!-- Segment rouge  bouts carrés -->
+    <line  x1="50" y1="180" x2="350" y2="180"
+           stroke-linecap="square"
+          stroke="red" stroke-width="20"/>
+    <!-- Segment brun  en pointillés -->
+    <line  x1="50" y1="230" x2="350" y2="230"
+           stroke-dasharray="30 10"
+          stroke="brown" stroke-width="20"/>
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <!-- NOTA : Tous les ségments ont la meme longueur -->
+
+    <!-- Segment noir  Attributs CSS -->
+    <line  x1="50" y1="30" x2="350" y2="30"
+          style="stroke:black; stroke-width: 20;"/>
+
+    <!-- Segment bleu  Attributs XML -->
+    <line  x1="50" y1="80" x2="350" y2="80"
+          stroke="blue" stroke-width="20"/>
+
+    <!-- Segment vert  bouts arrondie -->
+    <line  x1="50" y1="130" x2="350" y2="130"
+           stroke-linecap="round"
+          stroke="green" stroke-width="20"/>
+
+    <!-- Segment rouge  bouts carrés -->
+    <line  x1="50" y1="180" x2="350" y2="180"
+           stroke-linecap="square"
+          stroke="red" stroke-width="20"/>
+
+    <!-- Segment brun  en pointillés -->
+    <line  x1="50" y1="230" x2="350" y2="230"
+           stroke-dasharray="30 10"
+          stroke="brown" stroke-width="20"/>
+
+    </svg></textarea>
+</div>
+<br/>
+<h2 id="rect">Rectangle <a href="#primitives" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+    <!--rectangle rose -->
+    <rect x="30" y="30" width="200" height="160"
+          style="fill:pink; stroke:purple; stroke-width: 8px"/>
+
+    <!--rectangle jaune -->
+    <rect x="130" y="130" width="200" height="160"
+          rx="20" ry="20"
+          style="fill:#FF9; stroke:green; stroke-width: 8px"/>
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <!-- Rectangle rose -->
+    <rect x="30" y="30" width="200" height="160"
+          style="fill:pink; stroke:purple; stroke-width: 8px"/>
+
+    <!-- Rectangle jaune -->
+    <rect x="130" y="130" width="200" height="160"
+          rx="20" ry="20"
+          style="fill:#FF9; stroke:green; stroke-width: 8px"/>
+
+</svg></textarea>
+</div>
+<br/>
+<!-- Cercles -->
+<h2 id="circle">Circle et Ellipse (circle & ellipse)  <a href="#primitives" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+    <!-- Cercle rose -->
+    <circle  cx="120" cy="120"  r="100"
+          style="fill:pink; stroke:purple; stroke-width: 8px"/>
+
+    <!-- Ellipse jaune -->
+    <ellipse  cx="180" cy="180"  rx="120"  ry="80"
+          style="fill:#FF9; stroke:green; stroke-width: 8px"/>
+    </svg>
+    <textarea ><svg width="400" height="300">
+    <!-- Cercle rose -->
+    <circle  cx="120" cy="120"  r="100"
+          style="fill:pink; stroke:purple; stroke-width: 8px"/>
+
+    <!-- Ellipse jaune -->
+    <ellipse  cx="180" cy="180"  rx="120"  ry="80"
+          style="fill:#FF9; stroke:green; stroke-width: 8px"/>
+
+</svg></textarea>
+</div>
+
+<br/>
+<!-- Polylignes -->
+<h2 id="polyline">Polyligne (polyline)  <a href="#primitives" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+    <!-- Polyligne grise non remplie -->
+    <polyline points="30,100 80,200 120,100"
+          style="fill:none; stroke:gray; stroke-width: 20px"/>
+
+    <!-- Polyligne pourpre non remplie -->
+    <polyline points="150,100 200,200 250,100" stroke-linecap="round"
+          style="fill:none; stroke:purple; stroke-width: 20px"/>
+
+    <!-- Polyligne bleu foncé non remplie -->
+    <polyline points="280,100 330,200 380,100"
+              stroke-linecap="round" stroke-linejoin="round"
+          style="fill:none; stroke:darkblue; stroke-width: 20px"/>
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+    <!-- Polyligne grise non remplie -->
+    <polyline points="30,100 80,200 120,100"
+          style="fill:none; stroke:gray; stroke-width: 20px"/>
+
+    <!-- Polyligne pourpre non remplie -->
+    <polyline points="150,100 200,200 250,100" stroke-linecap="round"
+          style="fill:none; stroke:purple; stroke-width: 20px"/>
+
+    <!-- Polyligne cyan non remplie -->
+    <polyline points="280,100 330,200 380,100"
+              stroke-linecap="round" stroke-linejoin="round"
+          style="fill:none; stroke:cyan; stroke-width: 20px"/>
+
+</svg></textarea>
+</div>
+
+<br/>
+<!-- Polyones -->
+<h2 id="polygon">Polygones (polygon)  <a href="#primitives" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+    <!-- Polylgone rouge rempli avec du rose -->
+    <polygon points="30,100 80,200 120,100"
+          style="fill:#FAA; stroke:red; stroke-width: 20px"/>
+
+    <!-- Polygone pourpre  rempli avec du rose -->
+    <polygon points="150,100 200,200 250,100" stroke-linejoin="bevel"
+          style="fill:#FAA; stroke:purple; stroke-width: 20px"/>
+
+    <!-- Polygone bleu  rempli svec du cyan-->
+    <polygon points="280,100 330,200 380,100"
+              stroke-linecap="round" stroke-linejoin="round"
+          style="fill:cyan; stroke:darkblue; stroke-width: 20px"/>
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <!-- Polylgone rouge rempli avec du rose -->
+    <polygon points="30,100 80,200 120,100"
+          style="fill:#FAA; stroke:red; stroke-width: 20px"/>
+
+    <!-- Polygone pourpre  rempli avec du rose -->
+    <polygon points="150,100 200,200 250,100" stroke-linejoin="bevel"
+          style="fill:#FAA; stroke:purple; stroke-width: 20px"/>
+
+    <!-- Polygone bleu  rempli svec du cyan-->
+    <polygon points="280,100 330,200 380,100"
+              stroke-linecap="round" stroke-linejoin="round"
+          style="fill:cyan; stroke:darkblue; stroke-width: 20px"/>
+
+</svg></textarea>
+</div>
+<br/><br/>
+<div class="menu menus" id="paths">
+    <ul>
+        <li class="title">PATHS</li>
+        <li><a class="home" href="#">Home</a></li>
+        <li><a href="#lines">Lignes </a></li>
+        <li><a href="#arcs">Arcs</a></li>
+        <li><a href="#q">Courbe Quadratique </a></li>
+        <li><a href="#c">Courbe Cubique</a></li>
+    </ul>
+</div>
+<!-- Paths Lignes -->
+<h2 id="lines">Suite de ségments - LineTo (l, h, v)
+    <a href="#paths" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+    <!-- M : MoveTo -->
+    <!-- l : LineTo Relative -->
+    <!-- z : ClosePath  -->
+    <path d="M 150,150 l 100,100 l 100,-100 z"
+          style="fill: none; stroke: green; stroke-width: 8" />
+
+    <!-- M : MoveTo -->
+    <!-- L : LineTo Absolute -->
+    <!-- z : ClosePath  -->
+    <path d="M 150,150 L 100,100 L 100,-100 z"
+          style="fill: none; stroke: red; stroke-width: 8" />
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <!-- M : MoveTo -->
+    <!-- l : LineTo Relative -->
+    <!-- z : ClosePath  -->
+    <path d="M 150,150 l 100,100 l 100,-100 z"
+          style="fill: none; stroke: green; stroke-width: 8" />
+
+    <!-- M : MoveTo -->
+    <!-- L : LineTo Absolute -->
+    <!-- z : ClosePath  -->
+    <path d="M 150,150 L 100,100 L 100,-100 z"
+          style="fill: none; stroke: red; stroke-width: 8" />
+
+</svg></textarea>
+</div>
+<div class="container">
+    <svg width="400" height="300">
+
+    <!-- M : MoveTo -->
+    <!-- h : HorizontalTo Relative -->
+    <!-- v : VerticalTo Relative -->
+    <!-- z : ClosePath  -->
+    <path d="M 100,50 h 200 v 200 z"
+          style="fill: #FFC; stroke: green; stroke-width: 8" />
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <!-- M : MoveTo -->
+    <!-- h : HorizontalTo Relative -->
+    <!-- v : VerticalTo Relative -->
+    <!-- z : ClosePath  -->
+    <path d="M 100,50 h 200 v 200 z"
+          style="fill: #FFC; stroke: green; stroke-width: 8" />
+
+</svg></textarea>
+</div>
+<br/>
+
+<!-- Paths Arcs -->
+<h2 id="arcs">Arcs - ArcTo (a)
+    <a href="#paths" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+
+    <!-- a : ArcTo Relative -->
+    <!-- Arc d'1 ellipse de rayons 80,60 et d'un angle 0° -->
+    <!-- On part du point (150,150) au point (270,150) -->
+    <path d="M 150,150 a 100,60 0 0,0 120,0"
+          style="fill: none; stroke: green; stroke-width: 6" />
+    <path d="M 150,150 a 100,60 0 0,1 120,0"
+          style="fill: none; stroke: red; stroke-width: 6" />
+    <path d="M 150,150 a 100,60 0 1,1 120,0"
+          style="fill: none; stroke: blue; stroke-width: 6" />
+    <path d="M 150,150 a 100,60 0 1,0 120,0"
+          style="fill: none; stroke: purple; stroke-width: 6" />
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <!-- a : ArcTo Relative -->
+    <!-- Arc d'1 ellipse de rayons 80,60 et d'un angle 0° -->
+    <!-- On part du point (150,150) au point (270,150) -->
+    <path d="M 150,150 a 100,60 0 0,0 120,0"
+          style="fill: none; stroke: green; stroke-width: 6" />
+    <path d="M 150,150 a 100,60 0 0,1 120,0"
+          style="fill: none; stroke: red; stroke-width: 6" />
+    <path d="M 150,150 a 100,60 0 1,1 120,0"
+          style="fill: none; stroke: blue; stroke-width: 6" />
+    <path d="M 150,150 a 100,60 0 1,0 120,0"
+          style="fill: none; stroke: purple; stroke-width: 6" />
+
+</svg></textarea>
+</div>
+<br/>
+
+<!-- Paths Quadratic -->
+<h2 id="q">Courbes de beziers - Quadratiques (q)
+    <a href="#paths" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+
+    <!-- q : QuadraticTo Relative -->
+    <!-- On part du point (150,150) au point (250,150) -->
+    <!-- En passant par le point de controle (200,50)  -->
+    <path d="M 150,150 q 50,-100 100,0"
+          style="fill: none; stroke: green; stroke-width: 6" />
+
+    <!-- Les memes points avec un autre pt de controle   -->
+    <path d="M 150,150 q 100,150 100,0"
+          style="fill: none; stroke: red; stroke-width: 6" />
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <!-- q : QuadraticTo Relative -->
+    <!-- On part du point (150,150) au point (250,150) -->
+    <!-- En passant par le point de controle (200,50)  -->
+    <path d="M 150,150 q 50,-100 100,0"
+          style="fill: none; stroke: green; stroke-width: 6" />
+
+    <!-- Les memes points avec un autre pt de controle   -->
+    <path d="M 150,150 q 100,150 100,0"
+          style="fill: none; stroke: red; stroke-width: 6" />
+
+</svg></textarea>
+</div>
+<br/>
+
+<!-- Paths Cubic -->
+<h2 id="c">Courbes de beziers - Cubiques (c)
+    <a href="#paths" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+
+    <!-- c : CubicTo Relative -->
+    <!-- On part du point (100,100) au point (250,150) -->
+    <!-- En passant par deux pts de controle   -->
+    <path d="M 100,150 c 0,-150 200,150 200,0"
+          style="fill: none; stroke: green; stroke-width: 6" />
+
+    <!-- Les memes points avec deux autres pts de controle   -->
+    <path d="M 100,150 c 0,150 200,-150 200,0"
+          style="fill: none; stroke: red; stroke-width: 6" />
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <!-- c : CubicTo Relative -->
+    <!-- On part du point (100,100) au point (250,150) -->
+    <!-- En passant par deux pts de controle   -->
+    <path d="M 100,150 c 0,-150 200,150 200,0"
+          style="fill: none; stroke: green; stroke-width: 6" />
+
+    <!-- Les memes points avec deux autres pts de controle   -->
+    <path d="M 100,150 c 0,150 200,-150 200,0"
+          style="fill: none; stroke: red; stroke-width: 6" />
+
+</svg></textarea>
+</div>
+<br/>
+
+
+<br/><br/>
+<div class="menu menus" id="text">
+    <ul>
+        <li class="title">TEXTES</li>
+        <li><a class="home" href="#">Home</a></li>
+        <li><a href="#text1">Texte </a></li>
+        <li><a href="#text2">Texte suivant un chemin</a></li>
+    </ul>
+</div>
+
+<!-- Text -->
+<h2 id="text1">Textes (text)
+    <a href="#text" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+
+    <text x="80" y="180"
+          style="font-size: 120px; stroke: red; fill: pink" >
+        SVG
+    </text>
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <text x="80" y="180"
+          style="font-size: 120px; stroke: red; fill: pink" >
+        SVG
+    </text>
+
+</svg></textarea>
+</div>
+
+<!-- Text Path -->
+<h2 id="text2">Textes suivant un chemain (text)
+    <a href="#text" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+
+    <path d="M 50,150 c 50,-50 200,50 250,0" id="chemin"
+          style="fill: none; stroke: green; stroke-width: 1" />
+
+    <text style="font-size: 22px; stroke: red; fill: pink" >
+        <textPath xlink:href="#chemin">
+            Le dessin vectoriel est parfait
+        </textPath>
+    </text>
+
+    </svg>
+    <textarea><svg width="400" height="300">
+
+    <path d="M 50,150 c 50,-50 200,50 250,0" id="chemin"
+          style="fill: none; stroke: green; stroke-width: 1" />
+
+    <text style="font-size: 22; stroke: red; fill: pink" >
+        <textPath xlink:href="#chemin">
+            Le dessin vectoriel est parfait
+        </textPath>
+    </text>
+
+</svg></textarea>
+</div>
+
+
+<!-- Image -->
+<h2 id="image">Image (image)
+    <a href="#" class="top"><img src="top.svg"/></a></h2>
+<div class="container">
+    <svg width="400" height="300">
+
+        <!-- Première image -->
+        <image xlink:href="africa.jpeg"
+               x="0" y="0" width="400" height="300"/>
+
+        <!-- Deuxième image (si vous etes conectés)-->
+        <image xlink:href="http://lorempixel.com/400/300/"
+               x="0" y="0" width="400" height="300" opacity="0.9"/>
+
+        <!-- Texte semi-transparent -->
+        <text x="10" y="220"
+            style="font-size: 180px; stroke: red; fill: pink"
+            opacity="0.45" font-family="arial" font-weight="bold">
+            SVG
+        </text>
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+        <!-- Première image -->
+        <image xlink:href="africa.jpeg"
+               x="0" y="0" width="400" height="300"/>
+
+        <!-- Deuxième image (si vous etes conectés)-->
+        <image xlink:href="http://lorempixel.com/400/300/"
+               x="0" y="0" width="400" height="300" opacity="0.9"/>
+
+        <!-- Texte semi-transparent -->
+        <text x="10" y="220"
+            style="font-size: 180px; stroke: red; fill: pink"
+            opacity="0.45" font-family="arial" font-weight="bold">
+            SVG
+        </text>
+
+</svg></textarea>
+</div>
+
+
+<br/><br/>
+<div class="menu menus" id="gradients">
+    <ul>
+        <li class="title">Dégradés</li>
+        <li><a class="home" href="#">Home</a></li>
+        <li><a href="#linear">Dégradé linéaire </a></li>
+        <li><a href="#radial">Dégradé radial</a></li>
+    </ul>
+</div>
+
+<!-- LinearGradient -->
+<h2 id="linear">Dédradé linéaire (linearGradient)
+    <a href="#gradients" class="top"><img src="top.svg"/></a></h2>
+
+<div class="container">
+    <svg width="400" height="300">
+
+    <linearGradient id="grad0">
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="20%" stop-color="orange"></stop>
+        <stop offset="40%" stop-color="yellow"></stop>
+        <stop offset="60%" stop-color="green"></stop>
+        <stop offset="80%" stop-color="blue"></stop>
+        <stop offset="100%" stop-color="violet"></stop>
+    </linearGradient>
+
+    <rect x="50" y="50" width="300" height="200"
+          fill="url(#grad0)"></rect>
+
+    </svg>
+
+    <textarea ><svg width="400" height="300">
+
+    <linearGradient id="grad0">
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="20%" stop-color="orange"></stop>
+        <stop offset="40%" stop-color="yellow"></stop>
+        <stop offset="60%" stop-color="green"></stop>
+        <stop offset="80%" stop-color="blue"></stop>
+        <stop offset="100%" stop-color="violet"></stop>
+    </linearGradient>
+
+    <rect x="50" y="50" width="300" height="200"
+          fill="url(#grad0)"></rect>
+
+</svg></textarea>
+</div>
+
+
+<div class="container">
+    <svg width="400" height="300">
+
+    <linearGradient id="grad1">
+        <stop offset="0%" stop-color="green"></stop>
+        <stop offset="100%" stop-color="white"></stop>
+    </linearGradient>
+
+    <circle r="70" cx="120" cy="150" fill="url(#grad1)"/>
+
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="100%" stop-color="white"></stop>
+    </linearGradient>
+
+    <circle r="70" cx="300" cy="150" fill="url(#grad2)"/>
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <linearGradient id="grad1">
+        <stop offset="0%" stop-color="green"></stop>
+        <stop offset="100%" stop-color="white"></stop>
+    </linearGradient>
+
+    <circle r="70" cx="120" cy="150" fill="url(#grad1)"/>
+
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="100%" stop-color="white"></stop>
+    </linearGradient>
+
+    <circle r="70" cx="300" cy="150" fill="url(#grad2)"/>
+
+</svg></textarea>
+</div>
+
+<br/>
+
+<!-- radialGradient -->
+<h2 id="radial">Dédradé radial (radialGradient)
+    <a href="#gradients" class="top"><img src="top.svg"/></a></h2>
+
+<div class="container">
+    <svg width="400" height="300">
+
+    <radialGradient id="grad3">
+        <stop offset="0%" stop-color="white"></stop>
+        <stop offset="100%" stop-color="green"></stop>
+    </radialGradient>
+
+    <circle r="70" cx="120" cy="150" fill="url(#grad3)"/>
+
+    <radialGradient id="grad4" fx="30%" fy="30%">
+        <stop offset="0%" stop-color="white"></stop>
+        <stop offset="100%" stop-color="red"></stop>
+    </radialGradient>
+
+    <circle r="70" cx="300" cy="150" fill="url(#grad4)"/>
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+    <radialGradient id="grad3">
+        <stop offset="0%" stop-color="white"></stop>
+        <stop offset="100%" stop-color="green"></stop>
+    </radialGradient>
+
+    <circle r="70" cx="120" cy="150" fill="url(#grad3)"/>
+
+    <radialGradient id="grad4" fx="30%" fy="30%">
+        <stop offset="0%" stop-color="white"></stop>
+        <stop offset="100%" stop-color="red"></stop>
+    </radialGradient>
+
+    <circle r="70" cx="300" cy="150" fill="url(#grad4)"/>
+
+</svg></textarea>
+</div>
+
+
+<br/><br/>
+<div class="menu menus" id="patterns">
+    <ul>
+        <li class="title">Motifs de remplissage</li>
+        <li><a class="home" href="#">Home</a></li>
+        <li><a href="#motif1">Création de motifs simples </a></li>
+        <li><a href="#motif2">Motifs complexes</a></li>
+    </ul>
+</div>
+
+<!-- Pattern -->
+<h2 id="motif1">Création de motifs simples (pattern)
+    <a href="#patterns" class="top"><img src="top.svg"/></a></h2>
+
+<div class="container">
+    <svg width="400" height="300">
+    <pattern id="pat0" width="25" height="25" patternUnits="userSpaceOnUse">
+        <rect x="0" y="0" width="20" height="20" fill="#000" />
+    </pattern>
+
+
+    <rect x="50" y="50" width="300" height="200"
+          fill="url(#pat0)"></rect>
+
+    </svg>
+
+    <textarea ><svg width="400" height="300">
+
+    <!-- Création du motif -->
+    <pattern id="pat0" width="25" height="25"
+                    patternUnits="userSpaceOnUse">
+        <rect x="0" y="0" width="20" height="20" fill="#000" />
+    </pattern>
+
+    <!-- Utilisation du motif -->
+    <rect x="50" y="50" width="300" height="200"
+          fill="url(#pat0)"></rect>
+
+</svg></textarea>
+</div>
+
+
+
+<br/><br/>
+<div class="menu menus" id="transform">
+    <ul>
+        <li class="title">Transformations</li>
+        <li><a class="home" href="#">Home</a></li>
+        <li><a href="#translate">Translation </a></li>
+        <li><a href="#rotate">Rotation</a></li>
+        <li><a href="#scale">Mise à l'échelle</a></li>
+        <li><a href="#skew">Cisaillement</a></li>
+    </ul>
+</div>
+
+<!-- Translate -->
+<h2 id="translate">Translation (translate)
+    <a href="#transform" class="top"><img src="top.svg"/></a></h2>
+
+<div class="container">
+    <svg width="400" height="300">
+
+    <!-- Objet avant transformation -->
+    <rect x="50" y="50" width="150" height="100"
+          fill="green"></rect>
+
+    <!-- Objet après transformation -->
+    <rect x="50" y="50" width="150" height="100"
+          fill="orange" transform="translate(50,50)"></rect>
+
+    </svg>
+
+    <textarea ><svg width="400" height="300">
+
+    <!-- Objet avant transformation -->
+    <rect x="50" y="50" width="150" height="100"
+          fill="green"></rect>
+
+    <!-- Objet après transformation -->
+    <rect x="50" y="50" width="150" height="100"
+          fill="orange" transform="translate(50,50)"></rect>
+
+</svg></textarea>
+</div>
+
+
+<!-- Rotate -->
+<h2 id="rotate">Rotation (rotate)
+    <a href="#transform" class="top"><img src="top.svg"/></a></h2>
+
+<div class="container">
+    <svg width="400" height="300">
+
+    <!-- Objet avant transformation -->
+    <rect x="100" y="50" width="150" height="150"
+          fill="green"></rect>
+
+    <!-- Objet après transformation autour de (0,0) -->
+    <rect x="100" y="50" width="150" height="150"
+          fill="brown" transform="rotate(45)"></rect>
+
+    <!-- Objet après transformation autour de (175,125)-->
+    <rect x="100" y="50" width="150" height="150"
+          fill="orange" transform="rotate(45, 175,125)"></rect>
+
+    </svg>
+
+    <textarea ><svg width="400" height="300">
+
+    <!-- Objet avant transformation -->
+    <rect x="100" y="50" width="150" height="150"
+          fill="green"></rect>
+
+    <!-- Objet après transformation autour de (0,0) -->
+    <rect x="100" y="50" width="150" height="150"
+          fill="brown" transform="rotate(45)"></rect>
+
+    <!-- Objet après transformation autour de (175,125)-->
+    <rect x="100" y="50" width="150" height="150"
+          fill="orange" transform="rotate(45, 175,125)"></rect>
+
+</svg></textarea>
+</div>
+
+<!-- Scale -->
+<h2 id="scale">Mise à l'échelle (scale)
+    <a href="#transform" class="top"><img src="top.svg"/></a></h2>
+
+<div class="container">
+    <svg width="400" height="300">
+
+    <!-- Objet avant transformation -->
+    <rect x="40" y="40" width="100" height="100"
+          fill="green"></rect>
+
+    <!-- Objet après transformation 2xX et 1.8xY  -->
+    <rect x="40" y="40" width="100" height="100"
+          fill="brown" transform="scale(2,1.8)"></rect>
+
+    <!-- Objet après transformation -->
+    <rect x="40" y="40" width="100" height="100"
+          fill="orange" transform="scale(0.5)"></rect>
+
+    </svg>
+
+    <textarea ><svg width="400" height="300">
+
+    <!-- Objet avant transformation -->
+    <rect x="40" y="40" width="100" height="100"
+          fill="green"></rect>
+
+    <!-- Objet après transformation 2xX et 1.8xY  -->
+    <rect x="40" y="40" width="100" height="100"
+          fill="brown" transform="scale(2,1.8)"></rect>
+
+    <!-- Objet après transformation -->
+    <rect x="40" y="40" width="100" height="100"
+          fill="orange" transform="scale(0.5)"></rect>
+
+</svg></textarea>
+</div>
+<!-- Skew -->
+<h2 id="skew">Cisailement (skewX et SkewY)
+    <a href="#transform" class="top"><img src="top.svg"/></a></h2>
+
+<div class="container">
+    <svg width="400" height="300">
+
+    <!-- Objet avant transformation -->
+    <rect x="40" y="40" width="80" height="80"
+          fill="green"></rect>
+
+    <!-- Objet après transformation suivant X  -->
+    <rect x="120" y="40" width="100" height="100"
+          fill="brown" transform="skewX(30)" opacity="0.7" />
+
+    <!-- Objet après transformation suivant Y-->
+    <rect x="40" y="120" width="100" height="100"
+          fill="orange" transform="skewY(30)" opacity="0.7"/>
+
+    </svg>
+
+    <textarea ><svg width="400" height="300">
+
+    <!-- Objet avant transformation -->
+    <rect x="40" y="40" width="80" height="80"
+          fill="green"></rect>
+
+    <!-- Objet après transformation suivant X  -->
+    <rect x="120" y="40" width="100" height="100"
+          fill="brown" transform="skewX(30)" opacity="0.7"/>
+
+    <!-- Objet après transformation suivant Y-->
+    <rect x="40" y="120" width="100" height="100"
+          fill="orange" transform="skewY(30)" opacity="0.7"/>
+
+</svg></textarea>
+</div>
+
+
+<br/><br/>
+
+<!-- Avancé -->
+<div class="menu menus" id="avance">
+    <ul>
+        <li class="title">Techniques avancées</li>
+        <li><a class="home" href="#">Home</a></li>
+        <li><a href="#clip">Cliping </a></li>
+        <li><a href="#mask">Masques</a></li>
+    </ul>
+</div>
+
+<!-- Clip -->
+<h2 id="clip">Cliping  (clip-path)
+    <a href="#avance" class="top"><img src="top.svg"/></a></h2>
+
+<div class="container">
+    <svg width="400" height="300">
+
+        <!-- Zone de découpe -->
+        <clipPath id="clip1">
+           <text x="10" y="220" style="font-size: 180px; "
+                 font-family="arial" font-weight="bold">
+                SVG
+            </text>
+        </clipPath>
+
+        <!-- Image découpée -->
+        <image xlink:href="africa.jpeg"
+               x="0" y="0" width="400" height="300" clip-path="url(#clip1)"/>
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+        <!-- Zone de découpe -->
+        <clipPath id="clip1">
+           <text x="10" y="220" style="font-size: 180px; "
+                 font-family="arial" font-weight="bold">
+                SVG
+            </text>
+        </clipPath>
+
+        <!-- Image découpée -->
+        <image xlink:href="africa.jpeg"
+               x="0" y="0" width="400" height="300" clip-path="url(#clip1)"/>
+
+</svg></textarea>
+</div>
+
+<br/>
+
+<!-- Mask -->
+<h2 id="mask">Masques  (mask)
+    <a href="#avance" class="top"><img src="top.svg"/></a></h2>
+
+<div class="container">
+    <svg width="400" height="300">
+
+        <!-- Masque -->
+        <mask id="mask1" x="0" y="0" width="400" height="300">
+            <ellipse rx="50" ry="90" cx="80" cy="120" fill="#333" stroke="#fff" stroke-width="12"/>
+            <ellipse rx="50" ry="90" cx="200" cy="120" fill="#999" stroke="#fff" stroke-width="12" />
+            <ellipse rx="50" ry="90" cx="320" cy="120" fill="#fff" stroke="#fff" stroke-width="12" />
+            <rect x="32" y="220" width="336" height="60" fill="#999" stroke="#fff" stroke-width="12"/>
+        </mask>
+
+        <!-- Image masquée -->
+        <image xlink:href="africa.jpeg"
+               x="0" y="0" width="400" height="300" mask="url(#mask1)"/>
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+        <!-- Masque (le noir masque la lumière, le blanc est transparent) -->
+        <mask id="mask1" x="0" y="0" width="400" height="300">
+            <ellipse rx="50" ry="90" cx="80" cy="120"
+                     fill="#333" stroke="#fff" stroke-width="12"/>
+            <ellipse rx="50" ry="90" cx="200" cy="120"
+                     fill="#999" stroke="#fff" stroke-width="12" />
+            <ellipse rx="50" ry="90" cx="320" cy="120"
+                     fill="#fff" stroke="#fff" stroke-width="12" />
+            <rect x="32" y="220" width="336" height="60"
+                  fill="#999" stroke="#fff" stroke-width="12"/>
+        </mask>
+
+        <!-- Image masquée -->
+        <image xlink:href="africa.jpeg"
+               x="0" y="0" width="400" height="300" mask="url(#mask1)"/>
+
+</svg></textarea>
+</div>
+
+
+<br/>
+
+<!-- Mask 2 -->
+<h2 >Fusion d'images en dégradé
+    <a href="#avance" class="top"><img src="top.svg"/></a></h2>
+
+<div class="container">
+    <svg width="400" height="300">
+
+        <!-- Dégradé -->
+        <linearGradient id="grad5">
+            <stop offset="0%" stop-color="#fff"></stop>
+            <stop offset="100%" stop-color="#000"></stop>
+        </linearGradient>
+        <!-- Masque -->
+        <mask id="mask2" x="0" y="0" width="400" height="300">
+            <rect x="0" y="0" width="400" height="300" fill="url(#grad5)" />
+        </mask>
+
+        <!-- Image de base -->
+        <image xlink:href="city.jpeg"
+               x="0" y="0" width="400" height="300" />
+
+        <!-- Image Masquée -->
+        <image xlink:href="africa.jpeg"
+               x="0" y="0" width="400" height="300" mask="url(#mask2)"/>
+
+    </svg>
+    <textarea ><svg width="400" height="300">
+
+        <!-- Dégradé -->
+        <linearGradient id="grad5">
+            <stop offset="0%" stop-color="#fff"></stop>
+            <stop offset="100%" stop-color="#000"></stop>
+        </linearGradient>
+        <!-- Masque -->
+        <mask id="mask2" x="0" y="0" width="400" height="300">
+            <rect x="0" y="0" width="400" height="300" fill="url(#grad5)" />
+        </mask>
+
+        <!-- Image de base -->
+        <image xlink:href="city.jpeg"
+               x="0" y="0" width="400" height="300" />
+
+        <!-- Image Masquée -->
+        <image xlink:href="africa.jpeg"
+               x="0" y="0" width="400" height="300" mask="url(#mask2)"/>
+
+</svg></textarea>
+</div>
+<br/>
+
+<div class="menu menus" id="exercices">
+    <ul>
+        <li class="title">Exercices</li>
+        <li><a class="home" href="#">Home</a></li>
+        <li><a href="#coeur">1 - Coeur</a></li>
+        <li><a href="#coeurs">2 - Coeurs croisés</a></li>
+        <li><a href="#logo">3 - Logo Lesieur</a></li>
+        <li><a href="#asterie">4 - Astérie</a></li>
+        <li><a href="#croisillon">5 - Croisillon</a></li>
+        <li><a href="#carrelage">6 - Carrelage</a></li>
+        <li><a href="#weave">7 - Vagues</a></li>
+        <li><a href="#mona">8 - Mona lisa</a></li>
+    </ul>
+</div>
+<div  class="exercices clearfix">
+    <div id="coeur">
+        <h3>Exercice 1 <small>Coeur</small><a href="#exercices" class="top"><img src="top.svg"/></a></h3>
+        <div><img src="images/coeur.png" /></div>
+    </div>
+    <div id="coeurs">
+        <h3>Exercice 2 <small>Coeurs croisés</small><a href="#exercices" class="top"><img src="top.svg"/></a></h3>
+        <div><img src="images/coeurs-croises.png" /></div>
+    </div>
+    <div id="logo">
+        <h3>Exercice 3 <small>Logo Lesieur</small><a href="#exercices" class="top"><img src="top.svg"/></a></h3>
+        <div><img src="images/logo-lesieur.png" /></div>
+    </div>
+    <div id="asterie">
+        <h3>Exercice 4 <small>Astérie</small><a href="#exercices" class="top"><img src="top.svg"/></a></h3>
+        <div><img src="images/asterie.png" /></div>
+    </div>
+    <div id="croisillon">
+        <h3>Exercice 5 <small>Croisillon</small><a href="#exercices" class="top"><img src="top.svg"/></a></h3>
+        <div><img src="images/croisillon.png" /></div>
+    </div>
+    <div id="carrelage">
+        <h3>Exercice 6 <small>Carrelage</small><a href="#exercices" class="top"><img src="top.svg"/></a></h3>
+        <div><img src="images/cerrelage.png" /></div>
+    </div>
+    <div id="weave">
+        <h3>Exercice 7 <small>Vagues</small><a href="#exercices" class="top"><img src="top.svg"/></a></h3>
+        <div><img src="images/vagues.png" /></div>
+    </div>
+    <div id="mona">
+        <h3>Exercice 8 <small>Mona lisa</small><a href="#exercices" class="top"><img src="top.svg"/></a></h3>
+        <div><img src="images/mona-lisa.png" /></div>
+    </div>
+
+</div>
+<div id="gabari" style="display: none">
+    <div class="code"><pre><code class="language-markup"></code></pre></div>
+</div>
+<script src="js/prism.js"></script>
+<script>
+    var code = document.querySelector('#gabari div');
+    var textareas = document.querySelectorAll('textarea');
+    //console.log(pre.firstChild.innerText);
+    for(var i=0; i<textareas.length; i++){
+        var c = code.cloneNode(true);
+        textareas[i].style.display = "none";
+
+        c.firstChild.firstChild.textContent = textareas[i].value;
+        textareas[i].parentNode.insertBefore(c,textareas[i]);
+    }
+</script>
+</body>
+</html>

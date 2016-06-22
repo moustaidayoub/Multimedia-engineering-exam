@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        svg {
+            background: white;
+            border : gray 1px dotted;
+        }
+        .help{
+            margin-left: 640px;
+            position : absolute;
+            top: 0;
+        }
+        span.token.lf {
+            /*display: none;*/
+        }
+    </style>
+    <link href="../plugin/prism/prism.css" rel="stylesheet" type="text/css" />
+    <script src="../js/raphael-min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        window.onload = function () {
+            var paper = Raphael("bomber", 600, 600);
+            var path = "M300,300l20,60 -20,-10 -20,10z";
+            var tri = paper.path(path).attr('fill', 'black');
+
+            window.addEventListener('keydown', function (event) {
+                event.preventDefault();
+
+                switch (event.keyCode) {
+                    case 37:
+                        if (event.shiftKey)
+                            tri.transform('...r-5');
+                        else
+                            tri.transform('...t-5,0');
+                        break;
+                    case 38:
+                        tri.transform('...t0,-5');
+                        break;
+                    case 39:
+                        if (event.shiftKey)
+                            tri.transform('...r5');
+                        else
+                            tri.transform('...t5,0');
+                        break;
+                    case 40:
+                        tri.transform('...t0,5');
+                        break;
+                }
+
+                if (event.keyCode == 32)
+                    bombIt(tri);
+                event = null;
+            });
+            var bombIt = function (weapon) {
+                var color = 'hsl(' + Math.random()*360 + 'deg,1,0.5)';
+                var bomb = paper.circle(300, 300, 6 )
+                        .attr({
+                            'fill': 'rblack-' + color ,
+                            stroke : 'none'
+                        });
+                var situation = weapon.matrix.toTransformString();
+                bomb.transform(situation);
+                var temp = window.setInterval(function(){
+                    console.log(
+                            bomb.matrix.x(300,300),
+                            ' , ',
+                            bomb.matrix.y(300,300)
+                    )
+                }, 50);
+                bomb.animate({
+                            transform: situation + 't0-600',
+                            oapcity: 0.2
+                        },
+                        400,
+                        function(){
+                            this.remove();
+                            window.clearInterval(temp);
+                        }
+                );
+
+                //console.log(weapon.matrix.x(200,200));
+            }
+
+        };
+
+    </script>
+    <meta charset="utf-8">
+</head>
+<body>
+<div id="bomber"></div>
+<div class="help">
+    <h2>Descrition</h2>
+    <p>Le script constitue la base pour créer un jeu de bombardier.
+    Le code qui assure la rotation, les translations et le jet d'obus
+    reste relativement simple. Il tire profit des transformations et
+    de l'état de la matrice de transformation.</p>
+    <h2>Comment jouer</h2>
+    <ul>
+        <li>Avancer -> flêche <strong>Haut</strong></li>
+        <li>Reculer -> flêche <strong>Bas</strong></li>
+        <li>Aller à  gauche -> flêche <strong>Gauche</strong></li>
+        <li>Aller à droite -> flêche <strong>Droite</strong></li>
+        <li>Tourner à droite -> <strong>Shift</strong> + flêche <strong>Droite</strong></li>
+        <li>Tourner à gauche -> <strong>Shift</strong> + flêche <strong>Gauche</strong></li>
+        <li>Tirer un boulet -> <strong>Espace</strong></li>
+    </ul>
+
+</div>
+<div>
+    <h2>Code de cette page</h2>
+    <pre data-src="bomber.html" style="max-height: 100%"></pre>
+</div>
+<script src="../plugin/prism/prism.js"></script>
+</body>
+</html>

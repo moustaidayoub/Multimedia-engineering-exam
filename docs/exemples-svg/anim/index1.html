@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<svg width="800" height="600">
+    <path style="stroke:gray; stroke-width: 6; fill:#e03"
+          d="M100,200 q50,-40 100,0 q40,50 0,100 q-50,40 -100,0 q-40,-50 0,-100 z ">
+        <animate attributeName="d" values="M200,100 q50,-40 100,0 q40,50 0,100 q-50,40 -100,0 q-40,-50 0,-100 z ;
+        M200,100 q50,0 100,0 q0,50 0,100 q-50,0 -100,0 q-0,-50 0,-100 z;
+         M200,100 q50,-40 100,0 q40,50 0,100 q-50,40 -100,0 q-40,-50 0,-100 z "
+                 dur="2s" repeatCount="indefinite" />
+    </path>
+    <path style="stroke:gray; stroke-width: 2; fill:none; stroke-dasharray: 8 4"
+            d="M200,240 q50,-40 100,0 q40,50 0,100 q-50,40 -100,0 q-40,-50 0,-100 z ">
+        <animate attributeName="stroke-dashoffset" from="0" to="12" dur="1s" repeatCount="indefinite"/>
+    </path>
+</svg>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        svg {
+            border: 6px double green;
+        }
+    </style>
+</head>
+<body>
+<svg width="600" height="400">
+    <radialGradient id="grad1" fx="30%" fy="30%">
+        <stop offset="0%" stop-color="green" />
+        <stop offset="50%" stop-color="purple" />
+        <stop offset="100%" stop-color="blue" />
+    </radialGradient>
+    <rect x="100" y="100" width="200" height="160" fill="url(#grad1)"></rect>
+    <rect ></rect>
+</svg>
+</body>
+</html>

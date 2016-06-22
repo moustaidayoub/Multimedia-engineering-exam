@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Animations SVG</title>
+
+		<meta name="description"
+			  content="Principes des animations SVG">
+		<meta name="author" content="Abdelaziz DAAIF">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="js/jquery-1.11.1.js"></script>
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="css/prism.css"/>
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			.reveal p {
+				font-size: 0.7em;
+				line-height: 1.5em;
+			}
+			.heighlight {
+
+				text-shadow: 1px 1px 1px #fff, 1px 0px 12px #fa0;
+			}
+            .reveal h3, .reveal h4 {
+                font-size: 1.35em;
+            }
+            .reveal li h3 {
+                margin-top: 16px;
+                margin-bottom: 0;
+            }
+			.heighlight-red {
+				text-shadow: 1px 1px 1px #fff, 1px 1px 8px #b55;
+			}
+            .heighlight-green {
+				text-shadow: 1px 1px 1px #fff, 1px 1px 8px #5b5;
+			}
+            .heighlight-blue {
+				text-shadow: 1px 1px 1px #fff, 1px 1px 8px #55b;
+			}
+			section button[id^='btn'] {
+				width: 100px;
+				height: 40px;
+				margin-left: 1em;
+				font-size: 0.7em;
+				font-weight: bold;
+
+			}
+            .reveal pre code {
+                max-height: 500px;
+                min-width: 900px;
+            }
+            .reveal pre  {
+                min-width: 950px;
+            }
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+            <h2><span class="heighlight-red">Animations</span></h2>
+
+            <h2><span class="heighlight-red">SVG</span></h2>
+                    <br/>
+            <h5><span class="heighlight-green">A. DAAIF</span></h5>
+            <h5><span class="heighlight-green">ENSET Mohammedia</span></h5>
+            <h3><span class="heighlight-green">UH2 Casablanca</span></h3><br/>
+            <h5> <a href="http://svg.daaif.net"><span class="heighlight-blue">http://svg.daaif.net</span></a></h5>
+            <p><span class="heighlight-blue">aziz@daaif.net</span></p>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">PLAN</span></h2>
+            <ul>
+                <li><h3><span class="heighlight-green">Rappels</span></h3>
+                    <ul>
+                        <li>SVG dans une page web</li>
+                        <li>Application des styles CSS</li>
+                        <li>Javascript et accès au DOM</li>
+                    </ul>
+                </li>
+                <li><h3><span class="heighlight-green">Animations SVG</span></h3>
+                    <ul>
+                        <li>Animation d'attribut</li>
+                        <li>Animation de couleur</li>
+                        <li>Animation de transformation</li>
+                        <li>Animation de mouvement</li>
+                    </ul>
+                </li>
+                <li><h3><span class="heighlight-green">Synchronisation d'une animation</span></h3></li>
+
+            </ul>
+        </section>
+        <section>
+        <section>
+            <h3><span class="heighlight-red">Applications des styles CSS</span></h3>
+            <pre><code  class="language-markup" ><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <style type="text/css">
+        .btn {
+            stroke: #666;  stroke-width: 10;
+            fill: #CC8;
+        }
+        .btn:hover {
+            cursor: pointer;
+            fill : #FFA;
+        }
+    </style>
+    <rect x="100" y="60" width="100" height="60" rx="16" ry="16" class="btn" />
+</svg></code></pre>
+        </section>
+            <section>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <style type="text/css">
+    .btn {
+                            stroke: #666;
+                            stroke-width: 10;
+                            fill: #CC8;
+                        }
+
+                        .btn:hover {
+                            cursor: pointer;
+                            fill : #FFA;
+                        }
+                    </style>
+                    <rect x="100" y="60" width="100" height="60" rx="16" ry="16" class="btn" />
+                </svg>
+            </section>
+        </section>
+        <section>
+            <section>
+              <h2><span class="heighlight-red">Code javascript</span></h2><br/>
+                <pre><code  class="language-markup"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <style type="text/css">
+       /* ... */
+    </style>
+    <script type="text/javascript">
+        function hello(){
+            alert('hello world!');
+        }
+    </script>
+    <rect x="100" y="60" width="100" height="60" rx="16" ry="16" onclick="hello()" />
+</svg></code></pre>
+            </section>
+            <section>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+
+                    <script type="text/javascript">
+                        function hello(){
+                            alert('hello world!');
+                        }
+                    </script>
+                    <rect x="100" y="60" width="100" height="60" rx="16" ry="16" class="btn" onclick="hello()" />
+                </svg>
+            </section>
+        </section>
+        <section>
+            <section>
+
+                <h2><span class="heighlight-red">SVG Dans une page Web</span></h2>
+                <h4><span class="heighlight-green">Dans une balise &lt;img&gt;</span></h4>
+                <p>Comme n'importe quelle image</p>
+                <p>Javascript n'est pas interprété</p><br/>
+                        <pre><code  class="language-markup">
+    <img src="image.svg" width="180" height="140" /></code>
+                        </pre>
+                </p>
+                <p>
+                    <img src="svg/image.svg" width="180" height="140" />
+                </p>
+			</section>
+            <section>
+
+                <h2><span class="heighlight-red">SVG Dans une page Web</span></h2>
+                <h4><span class="heighlight-green">Dans une balise &lt;object&gt;</span></h4>
+                <br/>
+                        <pre><code  class="language-markup">
+<object data="image.svg" width="180" height="140" type="image/svg+xml" ></object>
+                            </code></pre>
+                </p>
+                <p>
+                    <object data="svg/image.svg" width="180" height="140" type="image/svg+xml"></object>
+                </p>
+            </section>
+            <section>
+
+                <h2><span class="heighlight-red">SVG Dans une page Web</span></h2>
+                <h3><span class="heighlight-green">Dans une balise &lt;embed&gt;</span></h3>
+                <br/>
+                        <pre><code  class="language-markup">
+<embed src="image.svg" width="180" height="140" type="image/svg+xml" ></embed>
+                            </code></pre>
+                </p>
+                <p>
+                    <embed src="svg/image.svg" width="180" height="140" type="image/svg+xml" ></embed>
+                </p>
+            </section>
+            <section>
+                <h2><span class="heighlight-red">SVG dans une page Web</span></h2>
+                <h3><span class="heighlight-green">Inline. utilisation de la balise <strong>&lt;sgv&gt;</strong></span></h3>
+                <br/>
+                <pre><code  class="language-markup">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="50%">
+        ...
+    </svg></code>
+                </pre>
+            </section>
+       </section>
+        <section>
+            <h2><span class="heighlight-red">Animations dans SVG</span></h2><br/>
+            <h3><span class="heighlight-green">Quatre types d'animations</span></h3>
+            <ul>
+                <br><li>Animation d'attribut <span class="heighlight"><strong>&lt;animate &gt;</strong></span></li>
+                <br><li>Animation de couleur <span class="heighlight"><strong>&lt;animateColor &gt;</strong></span></li>
+                <br><li>Animation de transformation <span class="heighlight"><strong>&lt;animateTransform &gt;</strong></span> </li></li>
+                <br><li>Animation de mouvement <span class="heighlight"><strong>&lt;animateMotion &gt;</strong></span></li>
+            </ul>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Principe d'une animation</span></h2>
+            <ul>
+            <br><li>Tous les types d'animations utilisent le concept
+            d'<span class="heighlight">interpolation</span>.</li><br>
+            <li>A partir d'une situation, on veut arriver à une autre
+                situation</li><br>
+            <li>En général, il suffit de définir la <span class="heighlight">situation d'arrivée</span>
+             et de donner la <span class="heighlight">durée de l'animation</span>. Le moteur SVG va alors calculer
+            <span class="heighlight">les images intermédiaires manquantes</span>.</li><br>
+            <li>Il est aussi possible de donner des <span class="heighlight">états intermédiaires</span></li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2><span class="heighlight-red">Animation d'attribut</span></h2>
+                <h3><span class="heighlight-green">Animation de position</span></h3>
+                <br/>
+                <pre><code  class="language-markup">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <style type="text/css">
+        .de {
+            stroke : #840;
+            stroke-width : 5;
+            fill : #FDA;
+        }
+    </style>
+    <rect x="30" y="200" width="60" height="60" class="de">
+        <animate  attributeName="x" to="200"  dur="2s"></animate>
+    </rect>
+</svg></code> </pre>
+            </section>
+            <section>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+                    <style type="text/css">
+                        .de {
+                            stroke : #840;
+                            stroke-width : 5;
+                            fill : #FDA;
+                        }
+                    </style>
+                    <rect x="10" y="10" width="100" height="60" rx="16" ry="16" class="btn" id="btn"/>
+                    <rect x="20" y="200" width="60" height="60" class="de">
+                        <animate attributeName="x" to="200" begin="btn.click" dur="2s"/>
+                    </rect>
+                </svg>
+                <p><strong>Remarque:</strong><br>
+                <span class="heighlight">L''objet revient par défaut à sa position initiale.</span>
+                </p>
+            </section>
+            <section>
+                <h2><span class="heighlight-red">Gel de l'état à la fin de l'animation</span></h2>
+                <br><p>On utilise l'attribut <strong>fill</strong>
+                qui peut avoir l'une des deux valeurs :
+                    <ul>
+                <li><span class="heighlight"><strong>remove</strong></span> valeur par défaut</li>
+                <li><span class="heighlight"><strong>freeze</strong></span> permet de geler le dernier état.</li>
+                    </ul>
+                </p>
+                <br/>
+                <pre><code  class="language-markup">
+    <rect x="30" y="200" width="60" height="60" class="de">
+        <animate attributeName="x" to="200"  dur="2s" fill="freeze"></animate>
+    </rect></code> </pre>
+            </section>
+            <section>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+                    <style type="text/css">
+                        .de {
+                            stroke : #840;
+                            stroke-width : 5;
+                            fill : #FDA;
+                        }
+                    </style>
+                    <rect x="10" y="10" width="100" height="60" rx="16" ry="16" class="btn" id="btn1"/>
+                    <rect x="20" y="200" width="60" height="60" class="de">
+                        <animate attributeName="x" to="200" begin="btn1.click" dur="2s" fill="freeze"/>
+                    </rect>
+                </svg>
+            </section>
+            <section>
+                <h2><span class="heighlight-red">Repétition de l'animation</span></h2>
+                <p>On utilise l'attribut <span class="heighlight"> <strong>repeatCount</span></strong>
+                    qui peut avoir l'une des deux valuers :
+                <ul>
+                    <li> <span class="heighlight"><strong>Entier</strong></span> nombre de repétitions</li>
+                    <li> <span class="heighlight"><strong>indefinite</strong></span> animation en boucle.</li>
+                </ul>
+                </p><br/>
+                <pre><code  class="language-markup">
+    <rect x="30" y="40" width="60" height="60" class="de">
+        <animate attributeName="x" to="600" repeatCount="indefinite" dur="1s" ></animate>
+    </rect></code> </pre>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="40%">
+                    <style type="text/css">
+                        .de {
+                            stroke : #840;
+                            stroke-width : 5;
+                            fill : #FDA;
+                        }
+                    </style>
+                    <rect x="30" y="40" width="60" height="60" class="de">
+                        <animate attributeName="x" to="600" repeatCount="indefinite" dur="1s" />
+                    </rect>
+                </svg>
+            </section>
+            <section>
+                <h2><span class="heighlight-red">Animation de plusieurs attributs à la fois</span></h2>
+                <br/>
+                <pre><code  class="language-markup">
+    <rect x="30" y="200" width="60" height="60" class="de">
+        <animate attributeName="x" to="200"  dur="2s" fill="freeze"></animate>
+        <animate attributeName="y" to="20"  dur="2s" fill="freeze"></animate>
+        <animate attributeName="width" to="200"  dur="2s" fill="freeze"></animate>
+        <animate attributeName="height" to="200"  dur="2s" fill="freeze"></animate>
+    </rect></code> </pre>
+            </section>
+            <section>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+                    <style type="text/css">
+                        .de {
+                            stroke : #840;
+                            stroke-width : 5;
+                            fill : #FDA;
+                        }
+                    </style>
+                    <rect x="10" y="10" width="100" height="60" rx="16" ry="16" class="btn" id="btn2"/>
+                    <rect x="30" y="200" width="60" height="60" class="de">
+                        <animate attributeName="x" to="200" begin="btn2.click" dur="2s" fill="freeze"/>
+                        <animate attributeName="y" to="12" begin="btn2.click" dur="2s" fill="freeze"/>
+                        <animate attributeName="width" to="200" begin="btn2.click" dur="2s" fill="freeze"/>
+                        <animate attributeName="height" to="200" begin="btn2.click" dur="2s" fill="freeze"/>
+                    </rect>
+                </svg>
+            </section>
+        </section>
+        <section>
+            <section>
+            <h2><span class="heighlight-red">Animation de couleur</span></h2>
+                <br>
+            <ul>
+                <li>L'élément  <span class="heighlight"><strong>&lt;animateColor&gt;</strong></span> est déprécié (SVG-1.1) et n'est pas pris en charge par tout les navigateurs.</li>
+                <li>On utilise à sa place l'élement   <span class="heighlight"><strong>&lt;animate&gt;</strong></span> </li>
+                <li>Il suffit donc d'animer un attribut de couleur</li>
+            </ul>
+            </section>
+            <section>
+                <h2><span class="heighlight-red">Animation de couleur</span></h2>
+                <br/>
+                <pre><code  class="language-markup">
+ <rect x="300" y="60" width="200" height="120" class="de">
+    <animate attributeName="fill" from="#F00" to="#0FF" repeatCount="indefinite"  dur="2s">
+    </animate>
+ </rect></code> </pre>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+                    <style type="text/css">
+                        .de {
+                            stroke : #840;
+                            stroke-width : 20;
+                            fill : #FDA;
+                        }
+                    </style>
+                    <rect x="300" y="30" width="200" height="120" class="de">
+                        <animate attributeName="fill" from="#F00" to="#0FF" repeatCount="indefinite"  dur="2s" />
+                    </rect>
+                </svg>
+            </section>
+            <section>
+                <h2><span class="heighlight-red">Animation d'opacité</span></h2>
+                <br/>
+                <pre><code  class="language-markup">
+  <rect x="300" y="60" width="200" height="120" class="de">
+    <animate attributeName="opacity"  from="0" to="1" repeatCount="indefinite"  dur="2s" >
+    </animate>
+  </rect></code> </pre>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+                    <style type="text/css">
+                        .de {
+                            stroke : #840;
+                            stroke-width : 20;
+                            fill : #FDA;
+                        }
+                    </style>
+                    <rect x="300" y="30" width="200" height="120" class="de">
+                        <animate attributeName="opacity"  from="0" to="1"  repeatCount="indefinite"  dur="2s">
+                            </animate>
+                    </rect>
+                </svg>
+            </section>
+
+        </section>
+    <section>
+        <section>
+            <h2><span class="heighlight-red">Animation de transformation</span></h2>
+            <br>
+            <ul>
+                <li>Les transformations possibles sont :
+                <ol>
+                    <li>Translation ( <span class="heighlight"><strong>translate</strong></span>)</li>
+                    <li>Rotation ( <span class="heighlight"><strong>rotate</strong></span>)</li>
+                    <li>Mise à l'Echelle ( <span class="heighlight"><strong>scale</strong></span>)</li>
+                    <li>Cisaillement ( <span class="heighlight"><strong>skewX</strong></span>
+                        et  <span class="heighlight"><strong>skewY</strong></span>)</li>
+                </ol>
+                </li><br>
+                <li>On applique une transformation à travers l'attribut
+                    <span class="heighlight"><strong>transform</strong></span></li><br>
+                <li>Pour animer une transformation, on utilise l'élément
+                     <span class="heighlight"><strong>&lt;animateTransform&gt;</strong></span></li>
+            </ul>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Animation de Translation</span></h2>
+            <br/>
+            <pre><code  class="language-markup">
+<rect x="100" y="60" width="60" height="60" class="de">
+    <animateTransform attributeName="transform" type="translate"
+      to="500" repeatCount="indefinite"  dur="2s" ></animateTransform>
+</rect></code></pre>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="40%">
+                <style type="text/css">
+                    .de {
+                        stroke : #840;
+                        stroke-width : 5;
+                        fill : #FDA;
+                    }
+                </style>
+                <rect x="100" y="60" width="60" height="60" class="de">
+                    <animateTransform attributeName="transform" type="translate"
+                                      to="500" repeatCount="indefinite"  dur="2s" />
+                </rect>
+            </svg>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Animation de Rotation</span></h2>
+            <br/>
+            <pre><code  class="language-markup">
+<rect x="100" y="60" width="60" height="60" class="de">
+    <animateTransform attributeName="transform" type="rotate"
+                     from="0 130 90" to="360 130 90"   dur="2s" ></animateTransform>
+</rect></code></pre>
+            <p> <span class="heighlight">La rotation étant faite autour du centre<strong>(130,90)</strong></span></p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="40%">
+                <style type="text/css">
+                    .de {
+                        stroke : #840;
+                        stroke-width : 5;
+                        fill : #FDA;
+                    }
+                </style>
+                <rect x="100" y="60" width="60" height="60" class="de">
+                    <animateTransform attributeName="transform" type="rotate"
+                    from="0 130 90" to="360 130 90"  repeatCount="indefinite"  dur="2s" />
+                </rect>
+            </svg>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Animation d'échelle</span></h2>
+            <br/>
+            <pre><code  class="language-markup">
+<rect x="100" y="30" width="60" height="60" class="de">
+    <animateTransform attributeName="transform" type="scale"
+                      from="1,1" to="4,2"   dur="2s" ></animateTransform>
+</rect></code></pre>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+                <style type="text/css">
+                    .de {
+                        stroke : #840;
+                        stroke-width : 5;
+                        fill : #FDA;
+                    }
+                </style>
+                <rect x="100" y="60" width="60" height="60" class="de">
+                    <animateTransform attributeName="transform" type="scale"
+                                      from="1,1" to="4,2"  repeatCount="indefinite"  dur="2s" />
+                </rect>
+            </svg>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Animation de cisaillement</span></h2>
+            <br/>
+            <pre><code  class="language-markup">
+  <rect x="100" y="60" width="60" height="60" class="de">
+    <animateTransform attributeName="transform" type="skewX"
+                     to="45"  dur="2s" ></animateTransform>
+  </rect></code></pre>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="40%">
+                <style type="text/css">
+                    .de {
+                        stroke : #840;
+                        stroke-width : 5;
+                        fill : #FDA;
+                    }
+                </style>
+                <rect x="100" y="60" width="60" height="60" class="de">
+                    <animateTransform attributeName="transform" type="skewX"
+                                       to="45"  repeatCount="indefinite"  dur="2s" />
+                </rect>
+            </svg>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Combinaisons</span></h2>
+            <br/>
+            <pre><code  class="language-markup">
+<rect x="100" y="80" width="60" height="60" class="de">
+    <animateTransform attributeName="transform" type="rotate"
+                      from="0 130 90"  begin="0s" repeatCount="indefinite"
+                      to="360 200 130"   dur="2s" >
+    </animateTransform>
+    <animate attributeName="x" repeatCount="indefinite"
+             to="300"   dur="2s" ></animate>
+    <animate attributeName="y" repeatCount="indefinite"
+             to="160"   dur="2s" ></animate>
+    <animate attributeName="fill" repeatCount="indefinite"
+             from="#0FF" to="#F0F"   dur="2s" ></animate>
+</rect></code></pre>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+                <style type="text/css">
+                    .de {
+                        stroke : #840;
+                        stroke-width : 5;
+                        fill : #FDA;
+                    }
+                </style>
+                <rect x="100" y="80" width="60" height="60" class="de">
+                    <animateTransform attributeName="transform" type="rotate"
+                                      from="0 130 90"  begin="0s" repeatCount="indefinite"
+                                      to="360 200 130"   dur="2s" >
+                                      </animateTransform>
+                    <animate attributeName="x" repeatCount="indefinite"
+                                      to="300"   dur="2s" >
+                    </animate>
+                    <animate attributeName="y" repeatCount="indefinite"
+                             to="160"   dur="2s" >
+                    </animate>
+                    <animate attributeName="fill" repeatCount="indefinite"
+                            from="#0FF" to="#F0F"   dur="2s" >
+                    </animate>
+
+                </rect>
+            </svg>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2><span class="heighlight-red">Animation de mouvement</span></h2>
+            <br>
+            <ul>
+                <br><li>On utilise l'élément  <span class="heighlight"><strong>&lt;animateMotion&gt;</strong></span></li>
+                <br><li>L'objet est animé en suivant un chemin  <span class="heighlight"><strong>Path</strong></span></li>
+                <br><li>Le chemin peut être  <span class="heighlight">défini</span> ou  <span class="heighlight">référencé</span> dans l'élément.</li>
+            </ul>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Exemple 1</span></h2>
+            <br/>
+            <pre><code  class="language-markup">
+<rect x="30" y="60" width="60" height="60" class="de">
+    <animateMotion repeatCount="indefinite" path="M200,30 l140 0 -30 120 z" dur="2s">
+    </animateMotion>
+</rect></code> </pre>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+                <style type="text/css">
+                    .de {
+                        stroke : #840;
+                        stroke-width : 5;
+                        fill : #FDA;
+                    }
+                </style>
+                <rect x="30" y="60" width="60" height="60" class="de">
+                    <animateMotion repeatCount="indefinite" path="M200,30 l140 0 -30 120 z" dur="2s"></animateMotion>
+                </rect>
+            </svg>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Exemple 2</span></h2>
+            <br/>
+            <pre><code  class="language-markup">
+<rect x="60" y="40" width="60" height="60" class="de">
+    <animateMotion repeatCount="indefinite" path="M200,40 l140 0 -30 120 z" dur="2s">
+    </animateMotion>
+    <animateTransform attributeName="transform" type="rotate"
+                      from="0 130 90"  repeatCount="indefinite"
+                      to="720 130 90"   dur="2s" >
+    </animateTransform>
+</rect></code></pre>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+                <style type="text/css">
+                    .de {
+                        stroke : #840;
+                        stroke-width : 5;
+                        fill : #FDA;
+                    }
+                </style>
+                <rect  width="60" height="60" class="de">
+                    <animateMotion repeatCount="indefinite" path="M200,40 l140 0 -30 120 z" dur="2s"></animateMotion>
+                    <animateTransform attributeName="transform" type="rotate"
+                                      from="0 130 90" repeatCount="indefinite"
+                                      to="720 130 90"   dur="2s" >
+                    </animateTransform>
+                </rect>
+            </svg>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Animation de mouvement</span></h2>
+            <h3><span class="heighlight-green">Chemin référencé</span></h3>
+            <br/>
+<pre><code  class="language-markup">
+    <path id="c" d="M200,30 l140 0 -30 120 z" class="path"></path>
+    <rect  width="60" height="60" class="de">
+        <animateMotion repeatCount="indefinite"  dur="2s">
+            <mpath xlink:href="#c"></mpath>
+        </animateMotion>
+    </rect>
+    </code></pre>
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="300">
+                <style type="text/css">
+                    .path {
+                        stroke : #840;
+                        stroke-width : 1;
+                        fill : none;
+                    }
+                </style>
+                <path id="p" d="M200,30 l140 0 -30 120 z" class="path"></path>
+
+                <rect  width="60" height="60" class="de">
+                    <animateMotion repeatCount="indefinite" begin="0s" dur="2s">
+                        <mpath xlink:href="#p"></mpath>
+                    </animateMotion>
+                </rect>
+            </svg>
+
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Animation de mouvement</span></h2>
+            <h3><span class="heighlight-green">Orientation par rapport au chemin</span></h3>
+            <br/>
+<pre><code  class="language-markup"><path id="p0" d="M40,90.5c0,0,56.999,19.5,113,0s134,0,134,0s67,22.5,144,0
+                       s131,0,131,0s60,17.5,108,0s76,0,76,0" class="path"></path>
+
+    <path d="M100.5,79.5h-80l-12-34c33.5,5.5,136-10,
+                    136-10L100.5,79.5z" transform="translate(0,-82)" class="path">
+        <animateMotion repeatCount="indefinite" dur="4s" rotate="auto">
+            <mpath xlink:href="#p0"></mpath>
+        </animateMotion>
+    </path> </code></pre>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%">
+                <style type="text/css">
+                    .path {
+                        stroke : #840;
+                        stroke-width : 1;
+                        fill : none;
+                    }
+                </style>
+                <path id="p2" d="M40,90.5c0,0,56.999,19.5,113,0s134,0,134,0s67,22.5,144,0
+	s131,0,131,0s60,17.5,108,0s76,0,76,0" class="path"></path>
+
+                <path d="M100.5,79.5h-80l-12-34c33.5,5.5,136-10,136-10L100.5,79.5z" transform="translate(0,-82)" class="path">
+                    <animateMotion repeatCount="indefinite" dur="4s" rotate="auto">
+                        <mpath xlink:href="#p2"></mpath>
+                    </animateMotion>
+                </path>
+            </svg>
+        </section>
+    </section>
+    <section>
+        <h2><span class="heighlight-red">Synchronisation des animations</span></h2>
+        <br/>
+        <ul>
+            <br><li>Permettre à des animations de <span class="heighlight"> démarrer simultannément</span></li>
+            <br><li>Permettre à une animation de <span class="heighlight">commencer à la fin d'une autre animation</span></li>
+            <br><li><span class="highlight">Arrêter</span> une animation <span class="heighlight">lorsqu'une autre commence</span></li>
+            <br><li>...</li>
+        </ul>
+    </section>
+    <section>
+        <section>
+            <h2><span class="heighlight-red">Synchronisation par le temps</span></h2>
+            <br/>
+            <ul>
+                <li>On utilise les attributs <span class="heighlight"><strong>begin</strong></span>
+                et <span class="heighlight"><strong>end</strong></span></li>
+                <li><span class="heighlight"><strong>begin</strong></span> permet de définir la date de démarrage de l'animation</li>
+                </ul>
+<pre><code  class="language-markup">
+        <animate  begin="0s" ></animate>
+    </code></pre>
+<pre><code  class="language-markup">
+        <animate  begin="5s" ></animate>
+    </code></pre>
+
+            <ul>
+                <li>L'inconvenient est que s'ils y a plusieurs animations, la synchronisation devient complexe</li>
+            </ul>
+        </section>
+        <section>
+            <h2><span class="heighlight-red"> Exemple</span></h2>
+            <br/>
+<pre><code  class="language-markup">
+<rect x="100" y="60" width="60" height="60" class="de">
+    <animate attributeName="x"
+             to="300" begin="0s"  dur="2s"  fill="freeze"></animate>
+    <animate attributeName="y"
+             to="160" begin="2s"  dur="2s" fill="freeze" ></animate>
+    <animate attributeName="fill"
+             begin="6s"  from="#0FF" to="#F0F"   dur="9s" fill="freeze" >
+    </animate>
+</rect>
+    </code></pre>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+            <rect x="100" y="60" width="60" height="60" class="de">
+                <animate attributeName="x"
+                         to="300" begin="0s"  dur="2s"  fill="freeze">
+                </animate>
+                <animate attributeName="y"
+                         to="160" begin="2s"  dur="2s" fill="freeze" >
+                </animate>
+                <animate attributeName="fill"
+                       begin="6s"  from="#0FF" to="#F0F"   dur="9s" fill="freeze" >
+                </animate>
+
+            </rect>
+                </svg>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2><span class="heighlight-red">Synchronisation par les événements</span></h2>
+            <br>
+            <ul>
+                <br><li>Deux sortes d'événements :
+                <ul>
+                    <li> Evénements utilisateur (sourie, clavier, ...)</li>
+                    <li> Evénements liés à l'animation (début, fin)</li>
+                </ul>
+                <br><li>Le départ peut être provoqué par un click sur un élément</li>
+                <br><li>Le départ d'une autre animation peut être provoqué par la fin de la première. Etc...</li>
+            </ul>
+        </section>
+        <section>
+            <h2><span class="heighlight-red">Exemple</span></h2>
+<pre><code  class="language-markup"><rect id="r1" x="100" y="160" width="60" height="60" class="de">
+    <animate attributeName="x" id="a2"
+             to="300" begin="r1.click; r2.click"  dur="4s"  fill="freeze"></animate>
+</rect>
+<rect id="r2" x="100" y="60" width="60" height="60" class="de">
+    <animate attributeName="x" id="a1"
+             to="300" begin="r1.click; r2.click"  dur="2s"  fill="freeze"></animate>
+    <animate attributeName="y"
+             to="160" begin="a1.end"  dur="2s" fill="freeze" ></animate>
+    <animate attributeName="fill"
+             begin="a1.end; a2.end"  from="#0FF" to="#F0F"   dur="1s" fill="freeze" ></animate>
+</rect></code></pre>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300">
+                <rect id="rect010" x="100" y="100" width="60" height="60" class="de" style="cursor:pointer">
+                    <animate attributeName="x" id="anim20"
+                             to="300" begin="rect010.click; rect020.click"  dur="4s"  fill="freeze">
+                    </animate>
+                </rect>
+                <rect id="rect020" x="100" y="20" width="60" height="60" class="de" style="cursor:pointer">
+                    <animate attributeName="x" id="anim10"
+                             to="300" begin="rect010.click; rect020.click"  dur="2s"  fill="freeze">
+                    </animate>
+                    <animate attributeName="y"
+                             to="160" begin="anim10.end"  dur="2s" fill="freeze" >
+                    </animate>
+                    <animate attributeName="fill"
+                             begin="anim10.end; anim20.end"  from="#0FF" to="#F0F"   dur="1s" fill="freeze" >
+                    </animate>
+
+                </rect>
+
+            </svg>
+        </section>
+    </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				minScale : 1.1,
+				maxScale : 2,
+				slideNumber: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					/*
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					*/
+					{ src: 'plugin/prism/prism.js', async: true, callback: function() { Prism.highlightAll(); } },
+					/*
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					*/
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+            //*
+			$("pre code").each(function(){
+				var escapedTags = $(this).html().replace("/</g","&lt;").replace("/>/g","&gt;")
+				$(this).text(escapedTags);
+				console.log(escapedTags)
+			});
+            //*/
+		</script>
+
+	</body>
+</html>

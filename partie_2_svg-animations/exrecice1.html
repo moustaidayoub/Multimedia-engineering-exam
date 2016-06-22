@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        svg {
+            margin-left: 30px;
+            margin-top: 30px;
+            border : 4px solid gray;
+            background: url(../ressources/back1.svg),
+                        url(../ressources/back2.svg),
+                        url(../ressources/back3.svg);
+        }
+        .container .h {
+            position: absolute;
+            left: 43px;
+        }
+        .container .v {
+            position: absolute;
+            top: 43px;
+        }
+        .default {
+            fill: #8b8;
+            stroke: #562;
+            stroke-width: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="../ressources/rule_h.png" class="h"/>
+    <img src="../ressources/rule_v.png" class="v"/>
+    <svg width="400" height="400">
+        <!-- exercice 1    -->
+        <rect x="50" y="50" width="150" height="300"
+              style="fill:#88bb88; stroke:#556622; stroke-width: 6px">
+            <animate attributeName="height" from="300" to="100" dur="2s" fill="freeze"/>
+            <animate attributeName="y" from="50" to="150" dur="2s" fill="freeze"/>
+            <animate attributeName="opacity" from="1" to="0.5" dur="2s" fill="freeze"/>
+        </rect>
+        <rect x="250" y="50" width="100" height="300"
+              style="fill:#88bb88; stroke:#556622; stroke-width: 6px"/>
+
+
+
+    </svg>
+</div>
+<button style="padding: 0.4em 2em; width:408px; margin-left:30px; font-size:2em"
+            onclick="history.back()">Retour</button>
+</body>
+</html>
